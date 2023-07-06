@@ -37,7 +37,7 @@ app.get('/', function(req, res) {
 
 //404
 app.get('*', function(req, res){
-    res.send('404 Bozo, whatcha trynna do??', 404);
+    res.status(404).send('404 Bozo, whatcha trynna do??');
 });
 
 // // Running the servers
