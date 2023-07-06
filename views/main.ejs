@@ -1,0 +1,129 @@
+<!-- toggles between standard mode and quirks mode-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.4">
+    <title>Shawn's website</title>
+    <link rel="stylesheet" href="normalize.css"> <!--normalize -->
+    <link rel="stylesheet" href="styles.css"> <!-- our own css--> 
+    <link rel="icon" href="data:;base64,=">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="main-bg.js"></script>
+  </head>
+  <body>
+    <div class="top">
+      <div class="outer-padded" style="background-color: gainsboro">
+        <div class="top-section">
+          <div class="imgbox">
+            <a href="https://shawnlu.dev"><img alt="logo" id="logo" src="shawnlu.png" /></a>
+          </div>
+          <div class="index">
+            <div>
+              <a href="#section-about"><p>About me</p></a>
+            </div>
+            <div>
+              <a href="#section-projects"><p>Projects</p></a>
+            </div>
+            <!-- <div>
+              <a href="#section-contact"><p>Contact</p></a>
+            </div> -->
+          </div>
+          <div class="connections">
+            github, linkedin, email
+          </div>
+        </div>
+      </div>
+      <div class="gradient-180"></div>
+    </div>
+    <div class="main-body">
+      <div class="bg-animation"> 
+        <p id="animation-dot-1">.</p>
+        <p id="animation-dot-2">.</p>
+      </div>
+      <div class="title">
+        <h1 style="display: inline;">Hi, my name is  </h1>
+        <h1 id="shawnlu"> Shawn Lu</h1>
+        <h2>Welcome to my website</h2>
+      </div>
+      <div class="gradient"></div>
+      <div id="section-about"></div>
+      <div class="sections">
+        <div class="outer-padded">
+          <div class="section" id="section-about-box">
+            <h2>About me</h2>
+            <div class="shawnlu-img-box">
+              <img src="shawnlu-1.jpg" class="shawnlu-img">
+            </div>
+            <p>
+              I am currently 21 years old living in Canada. I studied Computer Engineering and graduated from University of British Columnbia. 
+              For the past 3 years, I've been working as a Python/Math/Robotics teacher for Robokids.
+            </p>
+            <p>
+              Programming has been my hobby since first year of university. Python, Javascript, Java are some of the languages I am fluent in.
+              I have also worked with C, C++, Lua, SQL, and Verilog. Throughout my academic journey, I have worked with various tool like MATLAB,
+              Quartus, Vim, MongoDB, UNIX Shell... I also have experience with computer vision (OpenCV), machine learning (Mediapipe), quantum computing,
+              FPGA, and robotics.
+            </p>
+            <div class="shawnlu-img-box">
+              <img src="shawnlu-2.jpg" class="shawnlu-img">
+            </div>
+            <p>
+              Some other hobbies of mine are snowboarding, badminton, biking, puzzles, card/board games. There are a lot of skills I find interesting,
+              and hopefully I can master one day. For example, piano, music making, game developing and 3D design.  
+            </p>
+            <a href="https://shawnlu.dev/resume"><button>
+              My Résumé
+            </button></a>
+          </div>
+        </div>
+        <div class="divider" id="section-projects" ></div>
+        <div class="outer-padded">
+          <div class="section">
+            <h2>Projects</h2>
+            <div class="project-box">
+              <div class="project-img-box">
+                <img src="shawnlu-logo2.png" class="project-img">
+              </div>
+              <p class="project-title">My website</p>
+              <p class="project-content">
+                I have been trying to self-learn full-stack web development and this is my first website!
+              </p>
+            </div>
+            <hr>
+            <div class="project-box">
+              <div class="project-img-box">
+                <img src="shawnlu-logo2.png" class="project-img">
+              </div>
+              <p class="project-title">Gesture-Controlled Drone</p>
+              <p class="project-content">
+                Capstone project proposed by Huawei. Flight footage is taken from DJI Tello drone, processed with pretrained deep learning model
+                on Huawei's Atlas 200DK board. The faces and body postures are analyzed to perform PID tracking and command receiving.
+              </p>
+            </div>
+            <hr>            
+
+            </ul>
+          </div>
+        </div>
+        <!-- <div class="divider" id="section-contact"></div>
+        <div class="outer-padded">
+          <div class="section">
+            <h2>Contact</h2>
+            <p>my contacts</p>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </body>    
+  <!-- <h1>Welcome to Shawn's website</h1>
+    <h2>This page has been viewed <%= visits %> times </h2>
+    <P><%= param %></P>
+    <ul>
+      <% for(let i in headers) { %>
+        <li>
+          <a href="<%= domain_name %><%= headers[i] %>"><%= headers[i] %></a>
+        </li>
+      <% } %>
+    </ul> -->
+</html>
