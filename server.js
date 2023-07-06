@@ -32,7 +32,6 @@ for (let i in routes) {
 // routes
 // main page
 app.get('/', function(req, res) {
-    visit_count += 1;
     res.render('main', {'param': 'routes', 'domain_name': 'https://shawnlu.dev', 'headers':route_list});
 });
 
