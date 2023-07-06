@@ -19,14 +19,10 @@ module.exports.load = function(app) {
         return res.send('You are now logged in');
     });
 
-    app.get('/recursion', function(req, res) {
-        return res.render('recursion_index');
-    })
-
     app.get('/resume', function(req, res) {
         return res.send("Shawn's resume (todo)")
     })
 };
 
-module.exports.routes = ['/test', '/time', '/login', '/recursion', '/resume'];
+module.exports.routes = ['/test', '/time', '/login', '/resume'];
 
