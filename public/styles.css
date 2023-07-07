@@ -28,10 +28,14 @@ button {
     min-height: 3em;
     background-color: #cccccc;
     font-size: 1.5em;
+    letter-spacing: 0px;
+    transition : all .2s ease ;
 }
 
 button:hover {
-    background-color: azure;
+    background-color: #eeeeee;
+    letter-spacing : 1px    ;
+    transition : all .2s ease ;
 }
 
 .outer-padded {
@@ -311,6 +315,8 @@ hr {
 .project-icon-box img {
     max-width: 2.5em;
     padding-right: 1.5em;
+    z-index: 100;
+    position: relative;
 }
 
 .show-more-text-box {
@@ -319,27 +325,20 @@ hr {
     text-align: center;
 }
 
+.show-less-text-box p,
 .show-more-text-box p {
     margin: 0px auto;    
     font-size: 1.5em;
 }
 
+.show-less-text-box p:hover,
 .show-more-text-box p:hover {
-    color:gray;
+    color:rgb(160,160,160);
 }
 
 .show-less-text-box {
     position: relative;
     text-align: center;
-}
-
-.show-less-text-box p {
-    margin: 0px auto;    
-    font-size: 1.5em;
-}
-
-.show-less-text-box p:hover {
-    color:gray;
 }
 
 #section-more {
