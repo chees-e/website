@@ -118,6 +118,14 @@ button:hover {
     background: linear-gradient(0deg, rgba(100,100,100,0.6) 0%, rgba(255,255,255,0) 100%);
 }
 
+.show-more-gradient {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    top: -320px;
+    background: linear-gradient(0deg, rgb(242,242,242,1) 0%, rgba(242,242,242,0.2)  100%);
+}
+
 /* Main */
 @keyframes bg-animate {
     from {
@@ -194,7 +202,7 @@ button:hover {
 
 .sections {
     padding-top: 8em;
-    min-height: 3000px; /* placeholder */
+    min-height: 3500px; /* placeholder */
     width: 100%;
     background-color: #f2f2f2;
     font-family: sans-serif;
@@ -238,6 +246,7 @@ button:hover {
 .project-title {
     font-size: 2em;
     font-weight: bold;
+    padding-right: 1em;
     display: inline-block;
     width: fit-content;
 }
@@ -253,6 +262,10 @@ button:hover {
     margin: 0px;
 }
 
+.project-content-team {
+    color: gray;
+}
+
 .project-box:hover {
     background-color: #cccccc;
 }
@@ -261,6 +274,7 @@ button:hover {
     display: inline-block;
     vertical-align: top;
     padding-right: 3em;
+    padding-top: 1em;
     width: 30%;
     max-width: fit-content;
     height: auto;
@@ -288,13 +302,48 @@ hr {
     margin: 1em 0em;
 }
 
-.project-github-box {
+.project-icon-box {
     display: inline-block;
-    padding-left: 2em;
     padding-top: 0.5em;
     vertical-align: top;
 }
 
-.project-github-box img {
+.project-icon-box img {
     max-width: 2.5em;
+    padding-right: 1.5em;
 }
+
+.show-more-text-box {
+    position: relative;
+    top: -300px;
+    text-align: center;
+}
+
+.show-more-text-box p {
+    margin: 0px auto;    
+    font-size: 1.5em;
+}
+
+.show-more-text-box p:hover {
+    color:gray;
+}
+
+.show-less-text-box {
+    position: relative;
+    text-align: center;
+}
+
+.show-less-text-box p {
+    margin: 0px auto;    
+    font-size: 1.5em;
+}
+
+.show-less-text-box p:hover {
+    color:gray;
+}
+
+#section-more {
+    position: relative;
+    top: -360px;
+}
+

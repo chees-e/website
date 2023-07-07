@@ -10,9 +10,28 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="main-bg.js"></script>
     <script>
-      function showEmail() {
-        //todo
-      }
+      $(function() {
+        // function showEmail() {
+        //   //todo
+        // }
+        // function ShowMore() {
+        //   $(".show-more").css({"display":"block"});
+        //   $(".show-more-gradient").css({"display":"none"});
+        //   $(".show-more-text-box").css({"display":"none"});
+        // }
+        $(".show-more-text-box p").on("click", function (event) {
+          $(".show-more").css({"display":"block"});
+          $(".show-more-gradient").css({"display":"none"});
+          $(".show-more-text-box").css({"display":"none"});
+          $("#section-more").css({"top":"0px"});
+        });
+        $(".show-less-text-box p").on("click", function (event) {
+          $(".show-more").css({"display":"none"});
+          $(".show-more-gradient").css({"display":"block"});
+          $(".show-more-text-box").css({"display":"block"});
+          $("#section-more").css({"top":"-360px"});
+        });
+      });
     </script>
   </head>
   <body>
@@ -32,10 +51,10 @@
           </div>
           <div class="connections">
             <div class="icon-box">
-              <a href="https://github.com/chees-e"><img src="icon-github.png"></a>
+              <a href="https://github.com/chees-e" target=”_blank”><img src="icon-github.png"></a>
             </div>
             <div class="icon-box">
-              <a href="https://www.linkedin.com/in/shawn-lu-235749188/"><img src="icon-linkedin.png"></a>
+              <a href="https://www.linkedin.com/in/shawn-lu-235749188/" target=”_blank”><img src="icon-linkedin.png"></a>
             </div>
             <div class="icon-box" onclick="showEmail()">
               <img src="icon-gmail.png">
@@ -98,8 +117,8 @@
               <div class="project-title-content-box">
                 <div class="project-title-box">
                   <p class="project-title">My website</p>
-                  <div class="project-github-box">
-                    <a href="https://github.com/chees-e/website"><img src="icon-github.png"></a>
+                  <div class="project-icon-box">
+                    <a href="https://github.com/chees-e/website" target=”_blank”><img src="icon-github.png"></a>
                   </div>
                 </div>
                 <div class="project-content-box">
@@ -117,8 +136,9 @@
               <div class="project-title-content-box">
                 <div class="project-title-box">
                   <p class="project-title">Gesture-Controlled Drone</p>                  
-                  <div class="project-github-box">
-                    <a href="https://github.com/nchen99/gesture-controlled-drone"><img src="icon-github.png"></a>
+                  <div class="project-icon-box">
+                    <a href="https://github.com/nchen99/gesture-controlled-drone" target=”_blank”><img src="icon-github.png"></a>
+                    <a href="https://www.youtube.com/watch?v=7ZVxNtVQn8Q" target=”_blank”><img src="icon-youtube.png"></a>
                   </div>
                 </div>
                 <div class="project-content-box">
@@ -126,14 +146,168 @@
                     Capstone project proposed by Huawei. Flight footage is taken from DJI Tello drone, processed with pretrained deep learning model
                     on Huawei's Atlas 200DK board. The faces and body postures are analyzed to perform PID tracking and command receiving.
                   </p>
+                  <p class="project-content-team">
+                    Team: Naomi Chen, Ningfeng Yand, Patrick Huang, Shawn Lu, Yizhou Shen
+                  </p>
                 </div>
               </div>
             </div>
-            <hr>            
-
-            </ul>
+            <hr>        
+            <div class="project-box">
+              <div class="project-img-box">
+                <img src="flow-logo.png" class="project-img"> <!-- maybe improve logo -->
+              </div>
+              <div class="project-title-content-box">
+                <div class="project-title-box">
+                  <p class="project-title">Flow</p>                  
+                  <div class="project-icon-box">
+                    <a href="https://github.com/chees-e/flow" target=”_blank”><img src="icon-github.png"></a>
+                    <a href="https://github.com/chees-e/flow" target=”_blank”><img src="icon-link.png"></a>
+                  </div>
+                </div>
+                <div class="project-content-box">
+                  <p>
+                    CPSC 410 Project. A Javascript program analyzer that detects all the function declarations displays all the function calls using mermaid diagrams.
+                  </p>
+                  <p class="project-content-team">
+                    Team: Charlie Li, Janie Wang, Jessica Zhan, John Pham, and Shawn Lu
+                  </p>
+                </div>
+              </div>
+            </div>
+            <hr>     
+            <div class="show-more-gradient"></div>
+            <div class="show-more-text-box">
+              <p>
+                - Show more -
+              </p>
+            </div>
+            <div class="show-more" style="display: none;">
+              <div class="project-box">
+                <div class="project-img-box">
+                  <img src="bloq-logo.png" class="project-img">
+                </div>
+                <div class="project-title-content-box">
+                  <div class="project-title-box">
+                    <p class="project-title">Bloq</p>                  
+                    <div class="project-icon-box">
+                      <a href="https://github.com/chees-e/bloq" target=”_blank”><img src="icon-github.png"></a>
+                    </div>
+                  </div>
+                  <div class="project-content-box">
+                    <p>
+                      CPSC 410 Project. A domain-specific language with ANTLR that is designed for creating tiled maps for video games.
+                    </p>
+                    <p class="project-content-team">
+                      Team: Charlie Li, Janie Wang, Jessica Zhan, John Pham, and Shawn Lu
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <hr> 
+              <div class="project-box">
+                <div class="project-img-box">
+                  <img src="nyyk-logo.png" class="project-img"> <!-- maybe improve logo -->
+                </div>
+                <div class="project-title-content-box">
+                  <div class="project-title-box">
+                    <p class="project-title">Nyyk's Adventure</p>                  
+                    <div class="project-icon-box">
+                      <a href="https://github.com/chees-e/gamejam23" target=”_blank”><img src="icon-github.png"></a>
+                    </div>
+                  </div>
+                  <div class="project-content-box">
+                    <p>
+                      A 2D game made with Pygame for GameJam 2023 where you play as a rat and collect wood to construct a bridge.
+                    </p>
+                    <p class="project-content-team">
+                      Team: Jean Zheng, Nick Pang, Ricky Liu, Shawn Lu
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <hr>   
+              <div class="project-box">
+                <div class="project-img-box">
+                  <img src="nyyk-logo.png" class="project-img"> <!-- maybe improve logo -->
+                </div>
+                <div class="project-title-content-box">
+                  <div class="project-title-box">
+                    <p class="project-title">Nyyk's Adventure</p>                  
+                    <div class="project-icon-box">
+                      <a href="https://github.com/chees-e/gamejam23" target=”_blank”><img src="icon-github.png"></a>
+                    </div>
+                  </div>
+                  <div class="project-content-box">
+                    <p>
+                      A 2D game made with Pygame for GameJam 2023 where you play as a rat and collect wood to construct a bridge.
+                    </p>
+                    <p class="project-content-team">
+                      Team: Jean Zheng, Nick Pang, Ricky Liu, Shawn Lu
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <hr>  
+              <div class="project-box">
+                <div class="project-img-box">
+                  <img src="nyyk-logo.png" class="project-img"> <!-- maybe improve logo -->
+                </div>
+                <div class="project-title-content-box">
+                  <div class="project-title-box">
+                    <p class="project-title">Nyyk's Adventure</p>                  
+                    <div class="project-icon-box">
+                      <a href="https://github.com/chees-e/gamejam23" target=”_blank”><img src="icon-github.png"></a>
+                    </div>
+                  </div>
+                  <div class="project-content-box">
+                    <p>
+                      A 2D game made with Pygame for GameJam 2023 where you play as a rat and collect wood to construct a bridge.
+                    </p>
+                    <p class="project-content-team">
+                      Team: Jean Zheng, Nick Pang, Ricky Liu, Shawn Lu
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <hr>  
+              <div class="project-box">
+                <div class="project-img-box">
+                  <img src="nyyk-logo.png" class="project-img"> <!-- maybe improve logo -->
+                </div>
+                <div class="project-title-content-box">
+                  <div class="project-title-box">
+                    <p class="project-title">Nyyk's Adventure</p>                  
+                    <div class="project-icon-box">
+                      <a href="https://github.com/chees-e/gamejam23" target=”_blank”><img src="icon-github.png"></a>
+                    </div>
+                  </div>
+                  <div class="project-content-box">
+                    <p>
+                      A 2D game made with Pygame for GameJam 2023 where you play as a rat and collect wood to construct a bridge.
+                    </p>
+                    <p class="project-content-team">
+                      Team: Jean Zheng, Nick Pang, Ricky Liu, Shawn Lu
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <hr>  
+              <div class="show-less-text-box">
+                <p>
+                  - Show Less -
+                </p>
+              </div>
+            </div>   
           </div>
         </div>
+        <div class="divider"></div>
+        <div class="outer-padded">
+          <div class="section" id="section-more">
+            <h2>More on this Website</h2>
+            <p>Insert endpoints</p>
+          </div>
+        </div>       
       </div>
     </div>
   </body>    
