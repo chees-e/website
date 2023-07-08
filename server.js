@@ -20,12 +20,14 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static('public')); 
 app.use(express.static('scripts'));
 for (let i in routes) {
-    const curroute = require(`./routes/${routes[i]}`);
-    curroute.load(app);
-    console.log(`retrieving routes from /${routes[i]}`);
-    for (let j in curroute.routes) {
-    	route_list.push(`${curroute.routes[j]}`);
-	console.log(`- ${curroute.routes[j]} loaded`);
+    if (fs.lstatSync(`./routes/${routes[i]}`).isFile()) {
+        const curroute = require(`./routes/${routes[i]}`);
+        curroute.load(app);
+        console.log(`retrieving routes from /${routes[i]}`);
+        for (let j in curroute.routes) {
+            route_list.push(`${curroute.routes[j]}`);
+            console.log(`- ${curroute.routes[j]} loaded`);
+        }
     }
 }
 
