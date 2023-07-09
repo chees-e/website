@@ -20,7 +20,7 @@ module.exports.load = function(app) {
     });
 
     app.get('/resume', function(req, res) {
-        return res.send("Shawn's resume (todo)")
+        return res.render('resume');
     })
 };
 
