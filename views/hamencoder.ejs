@@ -36,11 +36,11 @@
           <form action="/hamencode" method="post">
             <p>
               <label for="encryption-key">Key</label>
-              <input id="input-key" name="key" maxlength="20" pattern="[A-Za-z0-9]+" value="<%= key %>">
+              <input id="input-key" name="key" maxlength="20" pattern="[A-Za-z0-9]+" value="<%= key %>" placeholder="(Optional)">
             </p>
             <p>
               <label for="encryption-message">Message</label>
-              <input id="input-message" name="message" maxlength="100" pattern="[A-Za-z0-9 ,]+" value= "<%= input %>"> <!-- value resets??? -->
+              <input id="input-message" name="message" maxlength="100" pattern="[A-Za-z0-9 ,]+" value= "<%= input %>" placeholder="Your message">
             </p>
             <p>
               <input type="submit" name="encrypt_button" value="encrypt">
