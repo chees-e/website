@@ -1,9 +1,3 @@
-div {
-    margin: 0 auto;
-    max-width: 100%;
-    display: block;
-}
-
 a {
     color: inherit;
     text-decoration: none;
@@ -23,7 +17,7 @@ li {
 
 button {
     margin-top: 1em;
-    border-radius: 25px;
+    border-radius: 30px;
     min-width: 10em;
     min-height: 3em;
     background-color: #cccccc;
@@ -43,7 +37,7 @@ button:hover {
     margin: auto;
 }
 
-.top {
+.website-header {
     margin-top: 0;
     position: fixed;
     width: 100%;
@@ -52,7 +46,7 @@ button:hover {
 }
 
 
-.top-section div {
+#top-section div {
     display:inline-block;
     max-height: 69px;
     margin-right: auto;
@@ -66,24 +60,24 @@ button:hover {
     padding-right: 3em;
 }
 
-.index {
+.subheaders {
     vertical-align: top;
     width: 30%;
     min-width: 300px;
 }
 
-.index div {
+.subheaders div {
     width: 49%;
 }
 
-.index p {
+.subheaders p {
     font-family: sans-serif;
     font-weight: 700;
     font-size: 1.6em;
     text-shadow: 1px 1px 2px gray;
 }
 
-.index p:hover {
+.subheaders p:hover {
     font-family: sans-serif;
     font-weight: 700;
     color:gray;
@@ -110,13 +104,13 @@ button:hover {
 }
 
 
-.gradient-180 {
+.gradient-header {
     width: 100%;
     height: 10px;
     background: linear-gradient(180deg, rgba(172,172,172,0.5) 0%, rgba(255,255,255,0) 100%);
 }
 
-.gradient {
+.gradient-title {
     width: 100%;
     height: 300px;
     background: linear-gradient(0deg, rgba(100,100,100,0.6) 0%, rgba(255,255,255,0) 100%);
@@ -179,11 +173,7 @@ button:hover {
     animation-duration: 43s;
 }
 
-.main-body {
-    width: 100%;
-}
-
-.title {
+.title-box {
     height: 300px;
     padding-top: 6em;
     padding-left: 110px;
@@ -226,7 +216,7 @@ button:hover {
     font-family: Noto Sans, sans-serif;
 }
 
-.shawnlu-img-box {
+.img-box-shawn {
     float: right;
     padding: 0 3em;
 }
@@ -253,6 +243,17 @@ button:hover {
     padding-right: 1em;
     display: inline-block;
     width: fit-content;
+}
+
+.project-year-box {
+    display: inline-block;
+    position: absolute;
+    right: -2em;
+}
+
+.project-year {
+    font-size: 1.5em;
+    color: gray;
 }
 
 .project-title-box {

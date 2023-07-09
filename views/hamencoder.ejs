@@ -10,17 +10,15 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
   </head>
   <body>
-    <div class="top">
-      <div class="outer-padded" style="background-color: gainsboro">
-        <div class="top-section">
-          <div class="imgbox">
-            <a href="https://shawnlu.dev"><img alt="logo" id="logo" src="shawnlu.png" /></a>
-          </div>
+    <div class="website-header">
+      <div class="outer-padded" id="top-section" style="background-color: gainsboro">
+        <div class="imgbox"> <!-- -->
+        <a href="https://shawnlu.dev"><img alt="logo" id="logo" src="shawnlu.png" /></a>
         </div>
       </div>
-      <div class="gradient-180"></div>
+      <div class="gradient-header"></div>
     </div>
-    <div class="main-body"> <!-- add padding-->
+    <div class="website-body"> <!-- add padding-->
       <div class="title-box">
         <h1>Ham Encoder</h1>
         <h2>by Shawn</h2>
@@ -37,24 +35,25 @@
         <div class="input-box">
           <form action="/hamencode" method="post">
             <p>
-                <label for="encryption-key">Key</label>
-                <input id="input-key" name="key">
+              <label for="encryption-key">Key</label>
+              <input id="input-key" name="key" maxlength="20" pattern="[A-Za-z0-9]+" value="<%= key %>">
             </p>
             <p>
-                <label for="encryption-message">Message</label>
-                <input id="input-message" name="message">
+              <label for="encryption-message">Message</label>
+              <input id="input-message" name="message" maxlength="100" pattern="[A-Za-z0-9 ,]+" value= "<%= input %>"> <!-- value resets??? -->
             </p>
             <p>
-              <input type="submit" name="encrypt-button" value="encrypt">
+              <input type="submit" name="encrypt_button" value="encrypt">
             </p>
             <p>
               <!--https://stackoverflow.com/questions/547821/two-submit-buttons-in-one-form-->
-              <input type="submit" name="decrypt-button" value="decrypt">
+              <input type="submit" name="decrypt_button" value="decrypt">
             </p>
         </form>
         </div>
         <div class="output-box">
-          Output
+          Output:
+          <p><%= output %></p>
         </div>
       </div>
     </div>
