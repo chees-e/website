@@ -20,8 +20,43 @@
       </div>
       <div class="gradient-180"></div>
     </div>
-    <div class="main-body">
-        
+    <div class="main-body"> <!-- add padding-->
+      <div class="title-box">
+        <h1>Ham Encoder</h1>
+        <h2>by Shawn</h2>
+      </div>
+      <div class="description-box">
+        <p>
+          Ham Encoder is an encryption algorithm inspired by hamming code (pun intended). It intentionally
+          creates errors and injects the correction code into the message. The message allows alphanumerics
+          as well as single spaces and commas. The "key" field can be used to shuffle the encryption mapping 
+          encrypted messages can only be decrypted with the same key.           
+        </p>
+      </div>
+      <div class="encoder-box">
+        <div class="input-box">
+          <form action="/hamencode" method="post">
+            <p>
+                <label for="encryption-key">Key</label>
+                <input id="input-key" name="key">
+            </p>
+            <p>
+                <label for="encryption-message">Message</label>
+                <input id="input-message" name="message">
+            </p>
+            <p>
+              <input type="submit" name="encrypt-button" value="encrypt">
+            </p>
+            <p>
+              <!--https://stackoverflow.com/questions/547821/two-submit-buttons-in-one-form-->
+              <input type="submit" name="decrypt-button" value="decrypt">
+            </p>
+        </form>
+        </div>
+        <div class="output-box">
+          Output
+        </div>
+      </div>
     </div>
   </body>    
 </html>

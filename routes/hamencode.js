@@ -2,7 +2,7 @@ module.exports.load = function(app) {
     app.get('/hamencode', function(req, res) {
         const encoder = require(`./hidden/hamencoder.js`);
 
-        return res.render('hamencoder', {'level': 'todo', 'key': 'todo', 'input': 'todo', 'output':'todo'});
+        return res.render('hamencoder', {'key': 'todo', 'input': 'todo', 'output':'todo'});
     });
 
     app.post('/hamencode', function(req, res) {
