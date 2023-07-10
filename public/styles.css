@@ -337,6 +337,7 @@ hr {
 .show-more-text-box p {
     margin: 0px auto;    
     font-size: 1.5em;
+    width: fit-content;
 }
 
 .show-less-text-box p:hover,
