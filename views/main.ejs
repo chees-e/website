@@ -23,13 +23,11 @@
           $(".show-more").css({"display":"block"});
           $(".show-more-gradient").css({"display":"none"});
           $(".show-more-text-box").css({"display":"none"});
-          $("#section-more").css({"top":"0px"});
         });
         $(".show-less-text-box p").on("click", function (event) {
           $(".show-more").css({"display":"none"});
           $(".show-more-gradient").css({"display":"block"});
           $(".show-more-text-box").css({"display":"block"});
-          $("#section-more").css({"top":"-360px"});
         });
       });
     </script>
@@ -181,7 +179,9 @@
               </div>
             </div>
             <hr>     
-            <div class="show-more-gradient"></div>
+            <div class="show-more-gradient-box">
+              <div class="show-more-gradient"></div>
+            </div>
             <div class="show-more-text-box">
               <p>
                 - Show more -
@@ -290,9 +290,8 @@
             </div>   
           </div>
         </div>
-        <div class="divider"></div>
-        <div class="outer-padded">
-          <div class="section" id="section-more">
+        <div class="outer-padded" id="section-more">
+          <div class="section">
             <h2>More on this Website</h2>
             <p>Insert endpoints</p>
           </div>
@@ -301,6 +300,13 @@
       <div class="bg-animation"> 
         <p id="animation-dot-1">.</p>
         <p id="animation-dot-2">.</p>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="outer-padded">
+        <div class="footer-box">
+          <p>You have reached the end, thanks for visiting shawnlu.dev</p>
+        </div>
       </div>
     </div>
   </body>    
