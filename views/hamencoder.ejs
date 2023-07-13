@@ -18,44 +18,52 @@
       </div>
       <div class="gradient-header"></div>
     </div>
-    <div class="website-body"> <!-- add padding-->
+    <div class="website-body"> 
       <div class="title-box-hamencoder">
+        
         <div class="outer-padded">
           <h1>Ham Encoder</h1>
           <h2>by Shawn</h2>
         </div>
       </div>
       <div class="description-box">
-        <p>
-          Ham Encoder is an encryption algorithm inspired by hamming code (pun intended). It intentionally
-          creates errors and injects the correction code into the message. The message allows alphanumerics
-          as well as single spaces and commas. The "key" field can be used to shuffle the encryption mapping 
-          encrypted messages can only be decrypted with the same key.           
-        </p>
+        <div class="outer-padded">
+          <p>
+            Ham Encoder is an encryption algorithm inspired by hamming code (pun intended). It intentionally
+            creates errors and injects the correction code into the message. The message allows alphanumerics
+            as well as single spaces and commas. The "key" field can be used to shuffle the encryption mapping 
+            encrypted messages can only be decrypted with the same key.           
+          </p>
+        </div>
       </div>
       <div class="encoder-box">
-        <div class="input-box">
-          <form action="/hamencode" method="post">
-            <p>
-              <label for="encryption-key">Key</label>
-              <input id="input-key" name="key" maxlength="20" pattern="[A-Za-z0-9]+" value="<%= key %>" placeholder="(Optional)">
-            </p>
-            <p>
-              <label for="encryption-message">Message</label>
-              <input id="input-message" name="message" maxlength="100" pattern="[A-Za-z0-9 ,]+" value= "<%= input %>" placeholder="Your message">
-            </p>
-            <p>
-              <input type="submit" name="encrypt_button" value="encrypt">
-            </p>
-            <p>
-              <!--https://stackoverflow.com/questions/547821/two-submit-buttons-in-one-form-->
-              <input type="submit" name="decrypt_button" value="decrypt">
-            </p>
-        </form>
+        <div class="outer-padded">
+          <div class="input-box">
+            <form action="/hamencode" method="post">
+              <p>
+                <label for="encryption-key">Key</label>
+                <input id="input-key" name="key" maxlength="20" pattern="[A-Za-z0-9]+" value="<%= key %>" placeholder="(Optional)">
+              </p>
+              <p>
+                <label for="encryption-message">Message</label>
+                <input id="input-message" name="message" maxlength="100" pattern="[A-Za-z0-9 ,]+" value= "<%= input %>" placeholder="Your message">
+              </p>
+              <p>
+                <input type="submit" name="encrypt_button" value="encrypt">
+              </p>
+              <p>
+                <input type="submit" name="decrypt_button" value="decrypt">
+              </p>
+            </form>
+          </div>
         </div>
         <div class="output-box">
-          Output:
-          <p><%= output %></p>
+          <div class="outer-padded">
+            Output:
+            <form>
+              <input value="<%= output %>" readonly="readonly"> 
+            </form>
+          </div>
         </div>
       </div>
     </div>

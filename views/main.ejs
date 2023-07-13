@@ -29,6 +29,16 @@
           $(".show-more-gradient").css({"display":"block"});
           $(".show-more-text-box").css({"display":"block"});
         });
+        $("#email-box").on("click", function(event) {
+          $(".popup-email-box").fadeToggle();
+        })
+        $("body").on("mouseup", function(event) { //https://stackoverflow.com/questions/1403615/use-jquery-to-hide-a-div-when-the-user-clicks-outside-of-it
+          var emailinput = $(".popup-email-box");
+          var emailbox = $("#email-box");
+          if (!emailbox.is(event.target) && !emailinput.is(event.target) && emailbox.has(event.target).length + emailinput.has(event.target).length === 0) {
+            emailinput.fadeOut();
+          }
+        })
       });
     </script>
   </head>
@@ -39,26 +49,30 @@
           <a href="https://shawnlu.dev"><img alt="logo" id="logo" src="shawnlu.png" /></a>
         </div>
         <div class="subheaders">
-          <div>
+          <div class="subheader-box">
             <a href="#section-about"><p>About me</p></a>
           </div>
-          <div>
+          <div class="subheader-box">
             <a href="#section-projects"><p>Projects</p></a>
           </div>
         </div>
         <div class="connections">
-          <div class="icon-box">
-            <a href="https://github.com/chees-e" target=”_blank”><img src="icon-github.png"></a>
+          <div class="connections-top-padded">
+            <div class="icon-box">
+              <a href="https://github.com/chees-e" target=”_blank”><img src="icon-github.png"></a>
+            </div>
+            <div class="icon-box">
+              <a href="https://www.linkedin.com/in/shawn-lu-235749188/" target=”_blank”><img src="icon-linkedin.png"></a>
+            </div>
+            <div class="icon-box">
+              <a href="javascript:;" id="email-box"><img src="icon-gmail.png"></a>
+              <form class="popup-email-box">
+                <div class="popup-email-text-box">
+                  <input class="popup-email-text" value="shawnlu4@gmail.com" readonly="readonly">
+                </div>
+              </form>
+            </div>        
           </div>
-          <div class="icon-box">
-            <a href="https://www.linkedin.com/in/shawn-lu-235749188/" target=”_blank”><img src="icon-linkedin.png"></a>
-          </div>
-          <div class="icon-box" onclick="showEmail()">
-            <img src="icon-gmail.png">
-          </div>        
-          <form class="popup-email">
-            <input value="shawnlu4@gmail.com" readonly="readonly">
-          </form>
         </div>
       </div>
       <div class="gradient-header"></div>
@@ -147,7 +161,7 @@
                     on Huawei's Atlas 200DK board. The faces and body postures are analyzed to perform PID tracking and command receiving.
                   </p>
                   <p class="project-content-team">
-                    Team: Naomi Chen, Ningfeng Yand, Patrick Huang, Shawn Lu, Yizhou Shen
+                    Team: Naomi Chen, Ningfeng Yang, Patrick Huang, Shawn Lu, Yizhou Shen
                   </p>
                 </div>
               </div>
@@ -162,7 +176,7 @@
                   <p class="project-title">Flow</p>                  
                   <div class="project-icon-box">
                     <a href="https://github.com/chees-e/flow" target=”_blank”><img src="icon-github.png"></a>
-                    <a href="https://github.com/chees-e/flow" target=”_blank”><img src="icon-link.png"></a>
+                    <!-- <a href="https://github.com/chees-e/flow" target=”_blank”><img src="icon-link.png"></a> -->
                   </div>
                   <div class="project-year-box">
                     <p class="project-year">2022</p>
@@ -183,9 +197,9 @@
               <div class="show-more-gradient"></div>
             </div>
             <div class="show-more-text-box">
-              <p>
+              <a href="javascript:;"><p>
                 - Show more -
-              </p>
+              </p></a>
             </div>
             <div class="show-more" style="display: none;">
               <div class="project-box">
@@ -283,9 +297,9 @@
               </div>
               <hr>  
               <div class="show-less-text-box">
-                <p>
+                <a href="javascript:;"><p>
                   - Show Less -
-                </p>
+                </p></a>
               </div>
             </div>   
           </div>
@@ -293,7 +307,7 @@
         <div class="outer-padded" id="section-more">
           <div class="section">
             <h2>More on this Website</h2>
-            <p>Insert endpoints</p>
+            <p>I will be adding more interesting stuff on my website and they will be displayed here.</p>
           </div>
         </div>       
       </div>

@@ -39,7 +39,7 @@ button:hover {
     margin: auto;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 403px) {
     .outer-padded {
         padding: 0 50px;
         margin: auto;
@@ -54,9 +54,13 @@ button:hover {
     z-index: 999;
 }
 
+#top-section {
+    min-height: 75px;
+}
+
 #top-section div {
     display:inline-block;
-    max-height: 69px;
+    max-height: 75px;
     margin-right: auto;
     margin-left: 0;
 }
@@ -64,18 +68,25 @@ button:hover {
 .imgbox {
     vertical-align: top;
     width: 275px;
-    padding: 5px 0;
-    padding-right: 3em;
+    padding-top: 5px;
+    padding-right: 1em;
 }
 
 .subheaders {
     vertical-align: top;
     width: 30%;
+    height: 100%;
     min-width: 300px;
+    text-align: center;
 }
 
-.subheaders div {
+.subheader-box {
     width: 49%;
+}
+
+.subheader-box:hover {
+    width: 49%;
+    background-color: #cccccc;
 }
 
 .subheaders p {
@@ -85,11 +96,11 @@ button:hover {
     text-shadow: 1px 1px 2px gray;
 }
 
-.subheaders p:hover {
+/* .subheaders p:hover {
     font-family: sans-serif;
     font-weight: 700;
     color:gray;
-}
+} */
 
 #logo {
     max-width: 95%;
@@ -97,10 +108,21 @@ button:hover {
 
 .connections {
     width: 16em;
+    padding-left: 2em;
     max-width: 20%;
     min-width: 6em;
-    vertical-align: middle;
+}
+
+@media screen and (max-width: 403px) {
+    .connections {
+        padding-left: 1em;
+    }
+}
+
+.connections-top-padded {
     padding-top: 1.5em;
+    vertical-align: middle;
+    width: 100%;
 }
 
 .icon-box {
@@ -111,11 +133,35 @@ button:hover {
     max-width: 2em;
 }
 
-.popup-email {
+.popup-email-box {
     position: relative;
-    top: 1em;
-    left: 3em;
-    visibility: hidden;
+    top: 1.5em;
+    left: -5em;
+    float: left;
+    display: none;
+}
+
+.popup-email-text {
+    width: 12em;
+    height: 2em;
+    text-align: center;
+    transform: scale(.99, .937);
+    border-radius: inherit;
+    font-family: sans-serif;
+    font-weight: 600;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-color: transparent;
+    outline: none;
+}
+
+.popup-email-text:focus {
+    outline: none;
+}
+
+.popup-email-text-box {
+	background: linear-gradient(30deg, red, yellow);
+    padding: 3px;
+    border-radius: 9999em;
 }
 
 /* Gradients */
@@ -199,13 +245,13 @@ button:hover {
 /* Main page */
 
 .website-body {
-    margin-top: 100px;
+    margin-top: 78px;
     font-family: sans-serif;
 }
 
 .title-box {
     height: 250px;
-    padding-top: 4em;
+    padding-top: 5em;
     padding-left: 110px;
     font-family: sans-serif;
     font-size: 3em;
@@ -368,6 +414,11 @@ hr {
 #section-more {
     padding-top: 100px;
     min-height: 400px;
+    font-family: sans-serif;
+}
+
+#section-more p {
+    font-size: 1.5em;
 }
 
 .footer {
