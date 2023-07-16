@@ -43,14 +43,18 @@ app.get('*', function(req, res){
 });
 
 // // Running the servers
-var options = {
-    key: fs.readFileSync(process.env.PRIVKEY_PATH),
-    cert: fs.readFileSync(process.env.CERT_PATH)
-};
+try {
+    var options = {
+        key: fs.readFileSync(process.env.PRIVKEY_PATH),
+        cert: fs.readFileSync(process.env.CERT_PATH)
+    }
 
-var httpsServer = https.createServer(options, app).listen(httpsPORT, function() {
-    console.log("HTTPS listening at https://localhost:%s", httpsPORT);	
-});
+    var httpsServer = https.createServer(options, app).listen(httpsPORT, function() {
+        console.log("HTTPS listening at https://localhost:%s", httpsPORT);	
+    });
+} catch (err) {
+    console.log("err: HTTPS server failed, check key/cert");
+}
 
 var httpServer = http.createServer(app).listen(httpPORT, function() {
    console.log("HTTP listening at http://localhost:%s", httpPORT);
