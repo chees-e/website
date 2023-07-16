@@ -35,15 +35,8 @@ button:hover {
 /* Header */
 
 .outer-padded {
-    padding: 0 110px;
+    padding: 0 15%;
     margin: auto;
-}
-
-@media screen and (max-width: 403px) {
-    .outer-padded {
-        padding: 0 50px;
-        margin: auto;
-    }
 }
 
 .website-header {
@@ -111,12 +104,6 @@ button:hover {
     padding-left: 2em;
     max-width: 20%;
     min-width: 6em;
-}
-
-@media screen and (max-width: 403px) {
-    .connections {
-        padding-left: 1em;
-    }
 }
 
 .connections-top-padded {
@@ -252,7 +239,7 @@ button:hover {
 .title-box {
     height: 250px;
     padding-top: 5em;
-    padding-left: 110px;
+    padding-left: 15%;
     font-family: sans-serif;
     font-size: 3em;
     text-shadow: 0px 0px 20px rgba(0,0,0,0.7);
@@ -437,6 +424,30 @@ hr {
     color:rgb(170, 170, 170);
     padding: 35px 0px;
     margin: 0px;
+}
+
+@media screen and (max-width: 1500px) {
+    .outer-padded {
+        padding: 0 10%;
+    }
+    .connections {
+        padding-left: 1em;
+    }
+    .title-box {
+        padding-left: 10%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .outer-padded {
+        padding: 0 5%;
+    }
+    .connections {
+        padding-left: 0.5em;
+    }
+    .title-box {
+        padding-left: 5%;
+    }
 }
 
 /* Hamencoder */
