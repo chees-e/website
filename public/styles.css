@@ -125,6 +125,7 @@ button:hover {
     top: 1.5em;
     left: -5em;
     float: left;
+    min-width: 16em;
     display: none;
 }
 
@@ -149,6 +150,12 @@ button:hover {
 	background: linear-gradient(30deg, red, yellow);
     padding: 3px;
     border-radius: 9999em;
+    display: inline-block;
+}
+
+.popup-email-link-box {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 /* Gradients */
@@ -273,7 +280,7 @@ button:hover {
 }
 
 .sections p {
-    max-width: 70%;
+    max-width: 80%;
     line-height: 2em;
     font-family: Noto Sans, sans-serif;
 }
