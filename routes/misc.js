@@ -20,7 +20,8 @@ module.exports.load = function(app) {
     });
 
     app.get('/resume', function(req, res) {
-        return res.render('resume');
+        const resume_name = "ShawnLuResume2023v5.pdf";
+        return res.render('resume', {"resume_name": resume_name});
     })
 };
 
