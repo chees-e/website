@@ -179,6 +179,15 @@ $(function() {
         } else if (scroll > 1200) {
             $("#down-arrow").fadeOut();
         }
+
+        // fade in body 2
+        if (scroll < 900) {
+            $("#body2").css({'opacity': 0});
+        } else if (scroll < 1500) {
+            $("#body2").css({'opacity': (scroll-900)/600});
+        } else {
+            $("#body2").css({'opacity': 1});
+        }
         
     });
     $("#title p").hover(function() {
