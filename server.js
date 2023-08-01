@@ -18,7 +18,7 @@ app.set('view engine', 'ejs');
 app.use(express.json());  
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public')); 
-app.use(express.static('scripts'));
+app.use(express.static('dist'));
 for (let i in routes) {
     if (fs.lstatSync(`./routes/${routes[i]}`).isFile()) {
         const curroute = require(`./routes/${routes[i]}`);
