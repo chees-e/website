@@ -37,6 +37,7 @@ function titleRandom() {
     titleState = 2;
 }
 function titleAlt() {
+    console.log("called")
     var plist = $("#title p"); // list of letters
     var divlist = $("#title-float div"); // list of words
     var h = $("#title h2").height() + 40; // height of h2 + padding
@@ -69,7 +70,8 @@ function titleAlt() {
     var x = widths[6] + widths[7] + widths[8]  + widths[9];
     x = h1double ? x : x + $(divlist[0]).width();
     cur.css({'transform': 'translate(' + -x + 'px ,' + (2 * h + lgOffset + nOffset) +'px) rotate(360deg)', 'font-size' : h2font});
-    leftOffset += cur.width();
+    // leftOffset += cur.width();
+    leftOffset += $(plist[29]).width();
     // i
     cur = $(plist[26]);
     x = widths[22] + widths[23] + widths[24] + widths[25];
@@ -147,6 +149,19 @@ function titleAlt() {
     });
     titleState = 1;
 }
+function updateGradient() {
+    var scroll = $(window).scrollTop();
+    var isSmall = window.matchMedia('(max-width: 1024px)').matches;
+    if (scroll < 700) {
+        $("#gradient-header1").css({'background': 'linear-gradient(' + (isSmall ? 180 : 90) + 'deg, rgb(0, 0, 0) 10%, rgba(0, 0, 0, ' + (isSmall ? 0 : 0.4) + ') 100%)'});
+    } else if (scroll < 1200) {
+        $("#gradient-header1").css({'background': 'linear-gradient(' + 
+            (isSmall ? 180 : 90) + 'deg, rgb(0, 0, 0) ' + (10 + (scroll-700)/100) + '%, rgba(0, 0, 0, ' + 
+            (isSmall ? ((scroll-700)/1000): (0.4 + (scroll-700)/2500)) + ') 100%)'});
+    } else {
+        $("#gradient-header1").css({'background': 'linear-gradient(' + (isSmall ? 180 : 90) + 'deg, rgb(0, 0, 0) 15%, rgba(0, 0, 0, ' + (isSmall ? 0.5 : 0.6) + ') 100%)'});
+    }
+}
 // main function (ready)
 $(function() {
     // header
@@ -166,6 +181,10 @@ $(function() {
         }
     });
 
+    $( window ).on( "resize", function() {
+        updateGradient();
+    });
+
     // title
     var idleTimer = 0;
     fadeInTitle();
@@ -174,7 +193,7 @@ $(function() {
     });
     $(window).scroll(function (event) {
         var scroll = $(window).scrollTop();
-        var isSmall = window.matchMedia('(max-width: 1024px)').matches;
+        // var isSmall = window.matchMedia('(max-width: 1024px)').matches;
         // $("#title").css({'transform': 'translateY(' + Math.min(scroll / 2, 200) + 'px)'});
 
         // switch title
@@ -186,23 +205,20 @@ $(function() {
         // fade title
         if (scroll < 700) {
             $("#title").css({'opacity': 1});
-            $("#gradient-header1").css({'background': 'linear-gradient(' + (isSmall ? 180 : 90) + 'deg, rgb(0, 0, 0) 10%, rgba(0, 0, 0, ' + (isSmall ? 0 : 0.4) + ') 100%)'});
         } else if (scroll < 1200) {
             $("#title").css({'opacity': 1-(scroll-700)/500});
-            $("#gradient-header1").css({'background': 'linear-gradient(' + 
-                (isSmall ? 180 : 90) + 'deg, rgb(0, 0, 0) ' + (10 + (scroll-700)/100) + '%, rgba(0, 0, 0, ' + 
-                (isSmall ? ((scroll-700)/1000): (0.4 + (scroll-700)/2500)) + ') 100%)'});
+
         } else {
             $("#title").css({'opacity': 0});
-            $("#gradient-header1").css({'background': 'linear-gradient(' + (isSmall ? 180 : 90) + 'deg, rgb(0, 0, 0) 15%, rgba(0, 0, 0, ' + (isSmall ? 0.5 : 0.6) + ') 100%)'});
         }
-
+        // down arrow
         if (scroll < 200) {
             $("#down-arrow").fadeIn();
         } else if (scroll > 1200) {
             $("#down-arrow").fadeOut();
         }
-
+        // gradient
+        updateGradient()
         // fade in body 2
         if (scroll < 900) {
             $("#body2").css({'opacity': 0});
@@ -210,6 +226,14 @@ $(function() {
             $("#body2").css({'opacity': (scroll-900)/500});
         } else {
             $("#body2").css({'opacity': 1});
+        }
+
+        // index list
+        var indexList = $("#index-list p");
+        indexList.removeClass("active");
+        if (scroll < 1400) {
+        } else {
+            $(indexList[0]).addClass("active");
         }
         
     });
@@ -245,6 +269,8 @@ $(function() {
 
     //     $("#title").css({"transform": "rotateY(" + deltax + "deg)"})
     // });
+
+   
 
     // bg-animation
     var num = 40;

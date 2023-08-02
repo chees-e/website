@@ -1,5 +1,5 @@
 $(function() {
-    var num = 40;
+    var num = 75;
 
     for (var j = 1; j < 3; j++) {
         var text_shadow = ""
@@ -8,8 +8,7 @@ $(function() {
             var y = -Math.floor(Math.random()*1500-500);
             var size = Math.floor(Math.random() * 225 + 75);
 
-            // var hue = Math.floor(Math.random() * 360)
-            var hue = Math.floor(Math.random() * 80+120)
+            var hue = Math.floor(Math.random() * 360)
             var satuation = 100;
             var lightness = Math.floor(Math.random() * 30 + 50)
             var alpha = 0.9;
@@ -20,9 +19,8 @@ $(function() {
             }
         }
 
+        console.log("added")
+
         $(`#animation-dot-${j}`).css({'text-shadow': text_shadow});
     }
 });
-
-
-

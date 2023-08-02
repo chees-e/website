@@ -16,8 +16,9 @@
                 <p id="animation-dot-2">.</p>
             </div>
             <div id="gradient-header1" class="fixed top-0 -z-10 h-screen w-screen"></div>
+            <div id="gradient-header2" class="fixed top-0 z-30 h-[150px] w-screen bg-gradient-to-b from-black from-20% lg:hidden"></div>
 
-            <div id="body1" class="ml-[10vw] mt-[250px] h-[1200px] pr-10 lg:ml-[30vw] lg:mt-[300px]">
+            <div id="body1" class="z-20 ml-[10vw] mt-[250px] h-[1200px] pr-10 lg:ml-[30vw] lg:mt-[300px]">
                 <div id="title" class="sticky top-[150px] select-none font-sans drop-shadow-lg">
                     <div id="title-float" class="relative">
                         <h1 id="title1" class="text-6xl md:text-8xl lg:text-9xl">
@@ -33,29 +34,31 @@
                     </div>
                 </div>
             </div>
-            <div id="body2" class="ml-[10vw] lg:ml-[30vw]" style="height: 10000px">
+            <div id="body2" class="z-20 ml-[10vw] lg:ml-[30vw]" style="height: 10000px">
                 <a id="about" class="invisible relative top-[-100px] block"></a>
                 <div class="sticky top-[100px] mb-28 font-serif text-5xl drop-shadow-lg md:text-7xl">About</div>
-                <div class="lg:columns-3">
+                <div class="">
                     <div class="lg:col-span-2">
-                        <p><span>test</span></p>
+                        <p><span>This site is still under development, please visit the old site for more info:</span></p>
                     </div>
-                    <div class="snap-x">
+                    <a href="https://shawnlu.dev/old"><button class="bg-white px-10 text-black">Visit</button></a>
+
+                    <!-- <div class="snap-x">
                         <div class="snap-center">
                             <img src="shawnlu-1.jpg" class="h-[30vh] rounded-xl lg:h-1/2" />
                         </div>
                         <div class="snap-center">
                             <img src="shawnlu-1.jpg" class="h-[30vh] rounded-xl lg:h-1/2" />
                         </div>
-                    </div>
+                    </div> -->
                     <!-- need responsive ^ -->
                 </div>
 
                 <!-- <img src="shawnlu-1.jpg" class="fixed left-0 top-0 -z-10 h-max w-max" /> -->
             </div>
 
-            <div id="Header" class="fixed top-0 flex w-screen flex-row lg:h-screen lg:w-1/3 lg:flex-col">
-                <div class="z-50 basis-1/3 pt-7 lg:hidden">
+            <div id="Header" class="fixed top-0 z-50 flex w-screen flex-row lg:h-screen lg:w-1/3 lg:flex-col">
+                <div class="basis-1/3 pt-7 lg:hidden">
                     <!-- add 'active' class for animation -->
                     <button id="index-button" class="ml-7 mt-[1px] align-top">
                         <div class="grid grid-rows-3">
@@ -65,10 +68,10 @@
                         </div>
                     </button>
                 </div>
-                <div class="z-50 basis-1/3 pt-4 lg:flex-none lg:pl-14 lg:pt-12">
+                <div class="basis-1/3 select-none pt-4 lg:flex-none lg:pl-14 lg:pt-12">
                     <a href="#"><img id="logo-website" class="m-auto h-[70px] lg:ml-0 lg:h-[100px]" src="shawnlu-logo3.png" /></a>
                 </div>
-                <div id="index-list" class="z-50 hidden grow basis-1/3 pt-10 lg:block lg:pl-14">
+                <div id="index-list" class="hidden grow basis-1/3 select-none pt-10 lg:block lg:pl-14">
                     <ul class="w-fit columns-1 font-serif text-3xl leading-loose hover:text-slate-400">
                         <li id="index-item1">
                             <a class="inline-block pl-2 hover:text-white" href="#about"><p>About</p></a>
@@ -87,13 +90,13 @@
                         </li>
                     </ul>
                 </div>
-                <div class="z-50 ml-auto mr-7 pt-7 md:hidden">
+                <div class="ml-auto mr-7 pt-7 md:hidden">
                     <button id="connection-button">
                         <img id="connection-button-img-1" class="h-[35px]" src="icon-link2.png" />
                         <img id="connection-button-img-2" class="absolute top-7 h-[35px]" src="icon-x.png" />
                     </button>
                 </div>
-                <div id="connections-list" class="z-50 hidden basis-1/3 pt-7 md:block lg:pl-14">
+                <div id="connections-list" class="hidden basis-1/3 select-none pt-7 md:block lg:pl-14">
                     <ul class="columns-3 lg:w-fit lg:columns-1">
                         <li class="lg:p-5 lg:pl-2">
                             <a href="https://www.linkedin.com/in/shawn-lu-235749188/" target="”_blank”">
@@ -112,9 +115,8 @@
                         </li>
                     </ul>
                 </div>
-                <div id="gradient-header2" class="fixed top-0 z-30 h-[150px] w-screen bg-gradient-to-b from-black from-20% lg:hidden"></div>
             </div>
-            <div id="down-arrow" class="fixed bottom-5 w-screen">
+            <div id="down-arrow" class="fixed bottom-5 z-50 w-screen">
                 <img src="icon-down.png" class="m-auto w-10 animate-bounce" />
             </div>
         </div>
