@@ -39,7 +39,7 @@ app.get('/', function(req, res) {
 
 //404
 app.get('*', function(req, res){
-    res.status(404).send('404 Bozo, whatcha trynna do??');
+    res.status(404).send('404, This page doesn\'t exist (yet)');
 });
 
 // // Running the servers
