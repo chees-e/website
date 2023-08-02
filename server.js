@@ -35,7 +35,7 @@ for (let i in routes) {
 // routes
 // main page
 app.get('/', function(req, res) {
-    res.render('main_new', {'param': 'routes', 'domain_name': 'https://shawnlu.dev', 'headers':route_list});
+    res.render('main_new', {'param': 'routes', 'domain_name': 'https://shawnlu.dev', 'headers':route_list, 'aboutList':["test1", "test2", "test3"] });
 });
 
 app.get('/old/', function(req, res) {

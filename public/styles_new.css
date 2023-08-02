@@ -54,6 +54,14 @@ a {
     }
 }
 
+#gradient-header2 {
+    transition-duration: 1s;
+}
+
+#gradient-header2.active {
+    height: 200vh;
+}
+
 
 
 /* Title  */
@@ -162,7 +170,7 @@ a {
 /* index list */
 
 #index-list .active {
-    text-shadow: 0px 0px 30px rgb(255 255 255);
+    text-shadow: 5px 5px 30px rgb(255 255 255), 5px -5px 30px rgb(255 255 255), -5px 5px 30px rgb(255 255 255), -5px -5px 30px rgb(255 255 255);
 }
 
 #index-list p {

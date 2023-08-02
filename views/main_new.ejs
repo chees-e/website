@@ -4,6 +4,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="A website about Shawn" />
         <title>Shawn's Website</title>
         <link rel="stylesheet" href="tw.css" />
         <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -17,45 +18,6 @@
             </div>
             <div id="gradient-header1" class="fixed top-0 -z-10 h-screen w-screen"></div>
             <div id="gradient-header2" class="fixed top-0 z-30 h-[150px] w-screen bg-gradient-to-b from-black from-20% lg:hidden"></div>
-
-            <div id="body1" class="z-20 ml-[10vw] mt-[250px] h-[1200px] pr-10 lg:ml-[30vw] lg:mt-[300px]">
-                <div id="title" class="sticky top-[150px] select-none font-sans drop-shadow-lg">
-                    <div id="title-float" class="relative">
-                        <h1 id="title1" class="text-6xl md:text-8xl lg:text-9xl">
-                            <div><p>H</p><p>i</p><p>,</p> <p>I</p><p>'</p><p>m</p> <span>&#8203;</span></div
-                            ><div><p>S</p><p>h</p><p>a</p><p>w</p><p>n</p></div>
-                        </h1>
-                        <h2 id="title2" class="pt-10 text-3xl md:text-4xl lg:text-6xl">
-                            <div><p>W</p><p>e</p><p>l</p><p>c</p><p>o</p><p>m</p><p>e</p> <span>&#8203;</span></div
-                            ><div><p>t</p><p>o</p> <span>&#8203;</span></div
-                            ><div><p>m</p><p>y</p> <span>&#8203;</span></div
-                            ><div><p>w</p><p>e</p><p>b</p><p>s</p><p>i</p><p>t</p><p>e</p><p id="title-u" style="opacity: 0">u</p></div>
-                        </h2>
-                    </div>
-                </div>
-            </div>
-            <div id="body2" class="z-20 ml-[10vw] lg:ml-[30vw]" style="height: 10000px">
-                <a id="about" class="invisible relative top-[-100px] block"></a>
-                <div class="sticky top-[100px] mb-28 font-serif text-5xl drop-shadow-lg md:text-7xl">About</div>
-                <div class="">
-                    <div class="lg:col-span-2">
-                        <p><span>This site is still under development, please visit the old site for more info:</span></p>
-                    </div>
-                    <a href="https://shawnlu.dev/old"><button class="bg-white px-10 text-black">Visit</button></a>
-
-                    <!-- <div class="snap-x">
-                        <div class="snap-center">
-                            <img src="shawnlu-1.jpg" class="h-[30vh] rounded-xl lg:h-1/2" />
-                        </div>
-                        <div class="snap-center">
-                            <img src="shawnlu-1.jpg" class="h-[30vh] rounded-xl lg:h-1/2" />
-                        </div>
-                    </div> -->
-                    <!-- need responsive ^ -->
-                </div>
-
-                <!-- <img src="shawnlu-1.jpg" class="fixed left-0 top-0 -z-10 h-max w-max" /> -->
-            </div>
 
             <div id="Header" class="fixed top-0 z-50 flex w-screen flex-row lg:h-screen lg:w-1/3 lg:flex-col">
                 <div class="basis-1/3 pt-7 lg:hidden">
@@ -118,6 +80,45 @@
             </div>
             <div id="down-arrow" class="fixed bottom-5 z-50 w-screen">
                 <img src="icon-down.png" class="m-auto w-10 animate-bounce" />
+            </div>
+
+            <div id="body1" class="z-20 ml-[10vw] mt-[250px] h-[1200px] pr-10 lg:ml-[30vw] lg:mt-[300px]">
+                <div id="title" class="sticky top-[150px] select-none font-sans drop-shadow-lg">
+                    <div id="title-float" class="relative">
+                        <h1 id="title1" class="text-6xl md:text-8xl lg:text-9xl">
+                            <div><p>H</p><p>i</p><p>,</p> <p>I</p><p>'</p><p>m</p> <span>&#8203;</span></div
+                            ><div><p>S</p><p>h</p><p>a</p><p>w</p><p>n</p></div>
+                        </h1>
+                        <h2 id="title2" class="pt-10 text-3xl md:text-4xl lg:text-6xl">
+                            <div><p>W</p><p>e</p><p>l</p><p>c</p><p>o</p><p>m</p><p>e</p> <span>&#8203;</span></div
+                            ><div><p>t</p><p>o</p> <span>&#8203;</span></div
+                            ><div><p>m</p><p>y</p> <span>&#8203;</span></div
+                            ><div><p>w</p><p>e</p><p>b</p><p>s</p><p>i</p><p>t</p><p>e</p><p id="title-u" style="opacity: 0">u</p></div>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+
+            <div id="body2" class="z-20 ml-[10vw] lg:ml-[30vw]" style="height: 10000px">
+                <a id="about" class="invisible relative top-[-100px] block"></a>
+                <div class="sticky top-[100px] mb-28 font-serif text-5xl drop-shadow-lg md:text-7xl">About</div>
+                <div class="lg:columns-3">
+                    <div class="lg:col-span-2">
+                        <p><% for (var i = 0; i < aboutList.length; i++) { %><span><%= aboutList[i] %> </span><% ;} %></p>
+                    </div>
+                    <!-- todo use cdn for images -->
+                    <div class="snap-x">
+                        <div class="snap-center">
+                            <img src="shawnlu-1.jpg" class="h-[30vh] rounded-xl lg:h-1/2" />
+                        </div>
+                        <div class="snap-center">
+                            <img src="shawnlu-1.jpg" class="h-[30vh] rounded-xl lg:h-1/2" />
+                        </div>
+                    </div>
+                    <!-- need responsive ^ -->
+                </div>
+
+                <!-- <img src="shawnlu-1.jpg" class="fixed left-0 top-0 -z-10 h-max w-max" /> -->
             </div>
         </div>
         <noscript class="absolute top-24 text-white lg:top-0"> It seems you don't have JavaScript enabled. For best experience, please enable JavaScript. </noscript>

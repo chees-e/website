@@ -1,5 +1,5 @@
 var titleState = 0; // 0 = normal, 1 = alt, 2 = random
-
+var buttonState = 0; // 0 = none, 1 = index, 2 = connection
 function fadeInTitle() {
     $("#title1").hide();
     $("#title2").hide();
@@ -14,9 +14,7 @@ function titleDefault() {
     var h1font = $(plist[0]).css('font-size');
     $(plist[10]).css({'font-size': h1font});
     $(plist[29]).css({'opacity': 0});
-    plist.each(function() {
-        $(this).css({'transform': 'translate(0px,0px) rotate(0deg)'});
-    });
+    plist.css({'transform': 'translate(0px,0px) rotate(0deg)'});
     // todo: wave
     // $(plist[0]).css({'transform': 'translate(0px, -5px) rotate(0deg)'});
     // for (var i = 1; i < 30; i++) {
@@ -167,10 +165,23 @@ $(function() {
     // header
     $("#index-button").click(function (event) {
         $(this).toggleClass("active");
+        if (buttonState != 2) {
+            $("#gradient-header2").toggleClass("active");
+        } else {
+            $("#connection-button").toggleClass("active");
+        }
+        buttonState = (buttonState == 1) ? 0 : 1;
     });
     $("#connection-button").click(function (event) {
         $(this).toggleClass("active");
+        if (buttonState != 1) {
+            $("#gradient-header2").toggleClass("active");
+        } else {
+            $("#index-button").toggleClass("active");
+        }
+        buttonState = (buttonState == 2) ? 0 : 2;
     });
+    // todo: mutex
     // index links https://stackoverflow.com/questions/7717527/smooth-scrolling-when-clicking-an-anchor-link
     $(document).on('click', 'a[href^="#"]', function (event) {
         if ($.attr(this, 'href') != "#") {
