@@ -42,6 +42,21 @@ a {
         opacity: 0;
     }
 }
+
+/* Gradients */
+#gradient-header1 {
+    background: linear-gradient(180deg, rgb(0, 0, 0) 10%, rgba(0, 0, 0, 0) 100%);
+}
+
+@media (min-width: 1024px) {
+    #gradient-header1 {
+        background: linear-gradient(90deg, rgb(0, 0, 0) 10%, rgba(0, 0, 0, 0.4) 100%);
+    }
+}
+
+
+
+/* Title  */
 /* 
 @keyframes title-animate {
     from {

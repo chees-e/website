@@ -174,6 +174,7 @@ $(function() {
     });
     $(window).scroll(function (event) {
         var scroll = $(window).scrollTop();
+        var isSmall = window.matchMedia('(max-width: 1024px)').matches;
         // $("#title").css({'transform': 'translateY(' + Math.min(scroll / 2, 200) + 'px)'});
 
         // switch title
@@ -185,10 +186,15 @@ $(function() {
         // fade title
         if (scroll < 700) {
             $("#title").css({'opacity': 1});
+            $("#gradient-header1").css({'background': 'linear-gradient(' + (isSmall ? 180 : 90) + 'deg, rgb(0, 0, 0) 10%, rgba(0, 0, 0, ' + (isSmall ? 0 : 0.4) + ') 100%)'});
         } else if (scroll < 1200) {
             $("#title").css({'opacity': 1-(scroll-700)/500});
+            $("#gradient-header1").css({'background': 'linear-gradient(' + 
+                (isSmall ? 180 : 90) + 'deg, rgb(0, 0, 0) ' + (10 + (scroll-700)/100) + '%, rgba(0, 0, 0, ' + 
+                (isSmall ? ((scroll-700)/1000): (0.4 + (scroll-700)/2500)) + ') 100%)'});
         } else {
             $("#title").css({'opacity': 0});
+            $("#gradient-header1").css({'background': 'linear-gradient(' + (isSmall ? 180 : 90) + 'deg, rgb(0, 0, 0) 15%, rgba(0, 0, 0, ' + (isSmall ? 0.5 : 0.6) + ') 100%)'});
         }
 
         if (scroll < 200) {
