@@ -55,48 +55,47 @@ function titleAlt() {
         return;
     } else if (window.matchMedia('(max-width: 768px)').matches){ // small
         lgOffset = h2double ? -30 : 0;
-        nOffset = 0
+        nOffset = 0;
     } else if (window.matchMedia('(max-width: 1024px)').matches){ // medium
         lgOffset = 40;
         nOffset = 4;
     }
-    var widths = []
+    var widths = [];
     for (let i = 0; i < 30; i++) {
         widths.push($(plist[i]).width());
     }
-    console.log(lgOffset)
     // n
     var cur = $(plist[10]);
-    var x = widths[6] + widths[7] + widths[8]  + widths[9] ;
+    var x = widths[6] + widths[7] + widths[8]  + widths[9];
     x = h1double ? x : x + $(divlist[0]).width();
-    cur.css({'transform': 'translate(' + -x + 'px ,' + (2 * h + lgOffset + nOffset) +'px) rotate(360deg)', 'font-size' : h2font})
+    cur.css({'transform': 'translate(' + -x + 'px ,' + (2 * h + lgOffset + nOffset) +'px) rotate(360deg)', 'font-size' : h2font});
     leftOffset += cur.width();
     // i
     cur = $(plist[26]);
     x = widths[22] + widths[23] + widths[24] + widths[25];
     x = h2double ? x : x + welcomew;
-    cur.css({'transform': 'translate(' + (-x + leftOffset) + 'px ,' + (h + lgOffset) +'px) rotate(360deg)'})
+    cur.css({'transform': 'translate(' + (-x + leftOffset) + 'px ,' + (h + lgOffset) +'px) rotate(360deg)'});
     leftOffset += cur.width();
     // c
     cur = $(plist[14]);
     x = widths[11] + widths[12] + widths[13];  
-    cur.css({'transform': 'translate(' + (-x + leftOffset) + 'px ,' + (h+lgOffset + line1Offset) +'px) rotate(360deg)'})
+    cur.css({'transform': 'translate(' + (-x + leftOffset) + 'px ,' + (h+lgOffset + line1Offset) +'px) rotate(360deg)'});
     leftOffset += cur.width();
     // e
     cur = $(plist[23]);
     x = widths[22]; 
     x = h2double ? x : x + welcomew;
-    cur.css({'transform': 'translate(' + (-x + leftOffset) + 'px ,' + (h + lgOffset) +'px) rotate(360deg)'})
+    cur.css({'transform': 'translate(' + (-x + leftOffset) + 'px ,' + (h + lgOffset) +'px) rotate(360deg)'});
     leftOffset += cur.width();
     // space
-    leftOffset += spacew
+    leftOffset += spacew;
     // to
     x = $(divlist[2]).width()
-    $(plist[18]).css({'transform': 'translate(' + (-x + leftOffset) + 'px ,' + (h+lgOffset + line1Offset) +'px) rotate(360deg)'})
-    $(plist[19]).css({'transform': 'translate(' + (-x + leftOffset) + 'px ,' + (h+lgOffset + line1Offset) +'px) rotate(360deg)'})
+    $(plist[18]).css({'transform': 'translate(' + (-x + leftOffset) + 'px ,' + (h+lgOffset + line1Offset) +'px) rotate(360deg)'});
+    $(plist[19]).css({'transform': 'translate(' + (-x + leftOffset) + 'px ,' + (h+lgOffset + line1Offset) +'px) rotate(360deg)'});
     leftOffset += widths[18] + widths[19];
     // space
-    leftOffset += spacew
+    leftOffset += spacew;
     // check if new line
     if (h2double) {
         leftOffset = 0;
@@ -150,6 +149,24 @@ function titleAlt() {
 }
 // main function (ready)
 $(function() {
+    // header
+    $("#index-button").click(function (event) {
+        $(this).toggleClass("active");
+    });
+    $("#connection-button").click(function (event) {
+        $(this).toggleClass("active");
+    });
+    // index links https://stackoverflow.com/questions/7717527/smooth-scrolling-when-clicking-an-anchor-link
+    $(document).on('click', 'a[href^="#"]', function (event) {
+        if ($.attr(this, 'href') != "#") {
+            event.preventDefault();
+            $('html, body').animate({
+                scrollTop: $($.attr(this, 'href')).offset().top
+            }, 500);;
+        }
+    });
+
+    // title
     var idleTimer = 0;
     fadeInTitle();
     $("#logo-website").click(function (event) {
@@ -162,14 +179,14 @@ $(function() {
         // switch title
         if (scroll < 200) {
             titleDefault();
-        } else if (scroll < 1200) {
+        } else if (scroll < 1200 && titleState != 1) {
             titleAlt();
         }
         // fade title
-        if (scroll < 500) {
+        if (scroll < 700) {
             $("#title").css({'opacity': 1});
         } else if (scroll < 1200) {
-            $("#title").css({'opacity': 1-(scroll-500)/700});
+            $("#title").css({'opacity': 1-(scroll-700)/500});
         } else {
             $("#title").css({'opacity': 0});
         }
@@ -183,15 +200,15 @@ $(function() {
         // fade in body 2
         if (scroll < 900) {
             $("#body2").css({'opacity': 0});
-        } else if (scroll < 1500) {
-            $("#body2").css({'opacity': (scroll-900)/600});
+        } else if (scroll < 1400) {
+            $("#body2").css({'opacity': (scroll-900)/500});
         } else {
             $("#body2").css({'opacity': 1});
         }
         
     });
     $("#title p").hover(function() {
-        if (titleState != 1) {
+        if (titleState == 0) {
             $(this).css({'padding': '0px 3px'});
         }
     }, function() {
@@ -234,14 +251,14 @@ $(function() {
             var size = Math.floor(Math.random() * 225 + 75);
 
             // var hue = Math.floor(Math.random() * 360)
-            var hue = Math.floor(Math.random() * 80+120)
+            var hue = Math.floor(Math.random() * 80+120);
             var satuation = 100;
             var lightness = Math.floor(Math.random() * 30 + 50)
             var alpha = 0.9;
 
-            text_shadow = text_shadow + `${x}px ${y}px ${size}px hsla(${hue},${satuation}%,${lightness}%,${alpha})`
+            text_shadow = text_shadow + `${x}px ${y}px ${size}px hsla(${hue},${satuation}%,${lightness}%,${alpha})`;
             if (i < num - 1) {
-                text_shadow = text_shadow + ", "
+                text_shadow = text_shadow + ", ";
             }
         }
 

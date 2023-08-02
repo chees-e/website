@@ -34,6 +34,14 @@ a {
         transform: translateY(25px);
     }
 }
+@keyframes warning-fadeout {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
 /* 
 @keyframes title-animate {
     from {
@@ -63,6 +71,8 @@ a {
     display: inline-block;
 }
 
+/* background animations */
+
 #bg-animation {
 
     background-color: rgb(16, 4, 59);
@@ -90,10 +100,46 @@ a {
     animation-duration: 43s;
 }
 
-/* todo remove */
-#index-item1::before {
-    border-color: red;
-    border-width: 10px;
-    border-radius: 10px;
+/* small screen warning fadeout */
+
+#small-screen-warning {
+    animation-name: warning-fadeout;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
 }
 
+/* button animations */
+
+#index-button img {
+    transition-duration: 0.6s;
+}
+
+.active #index-button-img-1 {
+    transform: translateY(11px) rotate(45deg) ;
+}
+
+.active #index-button-img-2 {
+    transform: rotate(135deg) ;
+}
+
+.active #index-button-img-3 {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+.active #connection-button-img-2 {
+    transform: rotate3d(-1, 1, 0, 0deg);
+}
+
+.active #connection-button-img-1 {
+    transform: rotate3d(1, 1, 0, 90deg);
+}
+
+#connection-button-img-1 {
+    transition-duration: 0.6s;
+}
+
+#connection-button-img-2 {
+    transform: rotate3d(-1, 1, 0, -90deg);
+    transition-duration: 0.6s;
+}
