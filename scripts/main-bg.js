@@ -19,9 +19,8 @@ $(function() {
             }
         }
 
+        console.log("added")
+
         $(`#animation-dot-${j}`).css({'text-shadow': text_shadow});
     }
 });
-
-
-

@@ -18,6 +18,7 @@ app.set('view engine', 'ejs');
 app.use(express.json());  
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public')); 
+app.use(express.static('dist'));
 app.use(express.static('scripts'));
 for (let i in routes) {
     if (fs.lstatSync(`./routes/${routes[i]}`).isFile()) {
@@ -34,6 +35,10 @@ for (let i in routes) {
 // routes
 // main page
 app.get('/', function(req, res) {
+    res.render('main_new', {'param': 'routes', 'domain_name': 'https://shawnlu.dev', 'headers':route_list});
+});
+
+app.get('/old/', function(req, res) {
     res.render('main', {'param': 'routes', 'domain_name': 'https://shawnlu.dev', 'headers':route_list});
 });
 
