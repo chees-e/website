@@ -160,30 +160,60 @@ function updateGradient() {
         $("#gradient-header1").css({'background': 'linear-gradient(' + (isSmall ? 180 : 90) + 'deg, rgb(0, 0, 0) 15%, rgba(0, 0, 0, ' + (isSmall ? 0.5 : 0.6) + ') 100%)'});
     }
 }
+function toggleIndexList() {
+    $("#index-list").toggleClass("active");
+}
+function toggleConnectionList() {
+    $("#connections-list").toggleClass("active");
+}
+function toggleGradient2() {
+    $("#gradient-header2").toggleClass("active");
+}
+function hideHeaderElements() {
+    $(".header-list-element").removeClass("active");
+    buttonState = 0;
+}
+function setExitZIndex() {
+    if (buttonState > 0) {
+        $("#exit-region").css({"z-index" : 50});
+    } else {
+        $("#exit-region").css({"z-index" : 0});
+    }
+}
 // main function (ready)
 $(function() {
     // header
     $("#index-button").click(function (event) {
         $(this).toggleClass("active");
+        toggleIndexList();
         if (buttonState != 2) {
-            $("#gradient-header2").toggleClass("active");
+            toggleGradient2();
         } else {
             $("#connection-button").toggleClass("active");
+            toggleConnectionList();
         }
         buttonState = (buttonState == 1) ? 0 : 1;
+        setExitZIndex();
     });
     $("#connection-button").click(function (event) {
         $(this).toggleClass("active");
+        toggleConnectionList()
         if (buttonState != 1) {
-            $("#gradient-header2").toggleClass("active");
+            toggleGradient2();
         } else {
             $("#index-button").toggleClass("active");
+            toggleIndexList();
         }
         buttonState = (buttonState == 2) ? 0 : 2;
+        setExitZIndex();
     });
-    // todo: mutex
+    $("#exit-region").click(function (event) {
+        hideHeaderElements();
+        setExitZIndex();
+    });
     // index links https://stackoverflow.com/questions/7717527/smooth-scrolling-when-clicking-an-anchor-link
     $(document).on('click', 'a[href^="#"]', function (event) {
+        hideHeaderElements();
         if ($.attr(this, 'href') != "#") {
             event.preventDefault();
             $('html, body').animate({
@@ -228,8 +258,17 @@ $(function() {
         } else if (scroll > 1200) {
             $("#down-arrow").fadeOut();
         }
+        // index list
+        var indexList = $("#index-list p");
+        indexList.removeClass("active");
+        if (scroll < 1300) { // early by 100 for large
+        } else {
+            $(indexList[0]).addClass("active");
+        }
+
         // gradient
         updateGradient()
+
         // fade in body 2
         if (scroll < 900) {
             $("#body2").css({'opacity': 0});
@@ -239,13 +278,14 @@ $(function() {
             $("#body2").css({'opacity': 1});
         }
 
-        // index list
-        var indexList = $("#index-list p");
-        indexList.removeClass("active");
-        if (scroll < 1400) {
-        } else {
-            $(indexList[0]).addClass("active");
-        }
+        // body 2 title
+        if (window.matchMedia('(min-width: 768px)').matches) { 
+            if (scroll < 1450) {
+                $("#section-title1").removeClass("active");
+            } else {
+                $("#section-title1").addClass("active");
+            }
+        } 
         
     });
     $("#title p").hover(function() {

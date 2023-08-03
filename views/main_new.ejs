@@ -17,12 +17,14 @@
                 <p id="animation-dot-2">.</p>
             </div>
             <div id="gradient-header1" class="fixed top-0 -z-10 h-screen w-screen"></div>
-            <div id="gradient-header2" class="fixed top-0 z-30 h-[150px] w-screen bg-gradient-to-b from-black from-20% lg:hidden"></div>
+            <div id="gradient-header2" class="header-list-element fixed top-0 z-30 h-[200px] w-[150vw] bg-gradient-to-b from-black from-25% lg:hidden"></div>
+            <!-- for mobile users to exit header lists -->
+            <div id="exit-region" class="fixed bottom-0 h-[50vh] w-screen lg:hidden"></div>
 
             <div id="Header" class="fixed top-0 z-50 flex w-screen flex-row lg:h-screen lg:w-1/3 lg:flex-col">
                 <div class="basis-1/3 pt-7 lg:hidden">
                     <!-- add 'active' class for animation -->
-                    <button id="index-button" class="ml-7 mt-[1px] align-top">
+                    <button id="index-button" class="header-list-element ml-7 mt-[1px] align-top">
                         <div class="grid grid-rows-3">
                             <img id="index-button-img-1" class="h-[11px] w-[35px]" src="icon-line.png" />
                             <img id="index-button-img-2" class="h-[11px] w-[35px]" src="icon-line.png" />
@@ -33,46 +35,46 @@
                 <div class="basis-1/3 select-none pt-4 lg:flex-none lg:pl-14 lg:pt-12">
                     <a href="#"><img id="logo-website" class="m-auto h-[70px] lg:ml-0 lg:h-[100px]" src="shawnlu-logo3.png" /></a>
                 </div>
-                <div id="index-list" class="hidden grow basis-1/3 select-none pt-10 lg:block lg:pl-14">
-                    <ul class="w-fit columns-1 font-serif text-3xl leading-loose hover:text-slate-400">
+                <div id="index-list" class="header-list-element fixed left-[-225px] top-[105px] grow basis-1/3 select-none lg:static lg:block lg:pl-14 lg:pt-10">
+                    <ul class="w-fit columns-2 font-serif text-3xl leading-loose hover:text-slate-400 md:columns-1">
                         <li id="index-item1">
-                            <a class="inline-block pl-2 hover:text-white" href="#about"><p>About</p></a>
+                            <a class="inline-block hover:text-white md:pl-2" href="#about"><p class="text-center lg:text-left">About</p></a>
                         </li>
                         <li>
-                            <a class="inline-block pl-2 hover:text-white"><p>Résumé</p></a>
+                            <a class="inline-block hover:text-white md:pl-2"><p class="text-center lg:text-left">Résumé</p></a>
                         </li>
                         <li>
-                            <a class="inline-block pl-2 hover:text-white"><p>Projects</p></a>
+                            <a class="inline-block hover:text-white md:pl-2"><p class="text-center lg:text-left">Projects</p></a>
                         </li>
                         <li>
-                            <a class="inline-block pl-2 hover:text-white"><p>Blog</p></a>
+                            <a class="inline-block hover:text-white md:pl-2"><p class="text-center lg:text-left">Blog</p></a>
                         </li>
                         <li>
-                            <a class="inline-block pl-2 hover:text-white"><p>Contact</p></a>
+                            <a class="inline-block hover:text-white md:pl-2"><p class="text-center lg:text-left">Contact</p></a>
                         </li>
                     </ul>
                 </div>
                 <div class="ml-auto mr-7 pt-7 md:hidden">
-                    <button id="connection-button">
+                    <button id="connection-button" class="header-list-element">
                         <img id="connection-button-img-1" class="h-[35px]" src="icon-link2.png" />
                         <img id="connection-button-img-2" class="absolute top-7 h-[35px]" src="icon-x.png" />
                     </button>
                 </div>
-                <div id="connections-list" class="hidden basis-1/3 select-none pt-7 md:block lg:pl-14">
-                    <ul class="columns-3 lg:w-fit lg:columns-1">
+                <div id="connections-list" class="header-list-element fixed right-[-225px] top-[120px] select-none md:static md:block md:w-auto md:basis-1/3 md:pt-7 lg:pl-14">
+                    <ul class="mx-auto w-[250px] columns-3 md:m-0 md:w-auto lg:columns-1">
                         <li class="lg:p-5 lg:pl-2">
                             <a href="https://www.linkedin.com/in/shawn-lu-235749188/" target="”_blank”">
-                                <img class="h-[40px] hover:scale-110 lg:h-[50px]" src="icon-linkedin-w.png" />
+                                <img class="ml-auto h-[40px] hover:scale-110 md:m-0 lg:h-[50px]" src="icon-linkedin-w.png" />
                             </a>
                         </li>
                         <li class="lg:p-5 lg:pl-2">
                             <a href="https://github.com/chees-e" target="”_blank”">
-                                <img class="h-[40px] hover:scale-110 lg:h-[50px]" src="icon-github-w.png" />
+                                <img class="ml-auto h-[40px] hover:scale-110 md:m-0 lg:h-[50px]" src="icon-github-w.png" />
                             </a>
                         </li>
                         <li class="lg:p-5 lg:pl-2">
                             <a href="mailto:shawnlu4@gmail.com">
-                                <img class="h-[40px] hover:scale-110 lg:h-[50px]" src="icon-gmail-w.png" />
+                                <img class="ml-auto h-[40px] hover:scale-110 md:m-0 lg:h-[50px]" src="icon-gmail-w.png" />
                             </a>
                         </li>
                     </ul>
@@ -99,77 +101,49 @@
                 </div>
             </div>
 
-            <div id="body2" class="z-20 ml-[10vw] lg:ml-[30vw]" style="height: 10000px">
-                <a id="about" class="invisible relative top-[-100px] block"></a>
-                <div class="sticky top-[100px] mb-28 font-serif text-5xl drop-shadow-lg md:text-7xl">About</div>
-                <div class="lg:columns-3">
-                    <div class="lg:col-span-2">
-                        <p><% for (var i = 0; i < aboutList.length; i++) { %><span><%= aboutList[i] %> </span><% ;} %></p>
+            <div id="body2" class="z-20 mx-[10vw] md:ml-[20vw] md:mr-20 lg:ml-[30vw] lg:mt-0">
+                <!-- mobile: starts at 1350, other: 1400 -->
+                <a id="about" class="invisible relative top-[-150px] block lg:top-[-100px]"></a>
+
+                <!-- note: margin is different on phone-->
+                <!-- need responsive ^ -->
+                <div class="flex flex-col gap-24 xl:flex-row" style="height: 3000px">
+                    <div class="xl:basis-2/3">
+                        <div class="top-[100px] font-serif text-5xl drop-shadow-lg md:sticky md:text-7xl">
+                            <p id="section-title1" class="section-title w-fit">About</p>
+                        </div>
+                        <div class="mt-10 text-2xl md:mt-40 md:text-4xl lg:leading-loose">
+                            <% for (var i = 0; i < aboutText.length; i++) { %>
+                            <p><%= aboutText[i] %></p>
+                            <br />
+                            <% } %>
+                        </div>
                     </div>
                     <!-- todo use cdn for images -->
-                    <div class="snap-x">
-                        <div class="snap-center">
-                            <img src="shawnlu-1.jpg" class="h-[30vh] rounded-xl lg:h-1/2" />
-                        </div>
-                        <div class="snap-center">
-                            <img src="shawnlu-1.jpg" class="h-[30vh] rounded-xl lg:h-1/2" />
+                    <div class="h-[3000px]">
+                        <div id="image-album-1" class="ml-[5vw] md:ml-0 xl:sticky xl:top-[360px] xl:mt-64">
+                            <div class="active">
+                                <img src="shawnlu-1.jpg" class="scale-105 rounded-xl blur-lg" />
+                                <img src="shawnlu-1.jpg" class="translate-y-[-70vw] rounded-xl xl:translate-y-[-20vw]" />
+                            </div>
+                            <div>
+                                <img src="shawnlu-2.jpg" class="scale-105 rounded-xl blur-lg xl:translate-y-[-40vw]" />
+                                <img src="shawnlu-2.jpg" class="translate-y-[-70vw] rounded-xl xl:translate-y-[-60vw]" />
+                            </div>
+                            <div>
+                                <img src="shawnlu-3.png" class="scale-105 rounded-xl blur-lg xl:translate-y-[-80vw]" />
+                                <img src="shawnlu-3.png" class="translate-y-[-70vw] rounded-xl xl:translate-y-[-100vw]" />
+                            </div>
                         </div>
                     </div>
-                    <!-- need responsive ^ -->
                 </div>
 
                 <!-- <img src="shawnlu-1.jpg" class="fixed left-0 top-0 -z-10 h-max w-max" /> -->
             </div>
         </div>
         <noscript class="absolute top-24 text-white lg:top-0"> It seems you don't have JavaScript enabled. For best experience, please enable JavaScript. </noscript>
-        <div id="small-screen-warning" class="fixed left-0 top-0 h-screen w-screen bg-black text-white min-[270px]:hidden">
+        <div id="small-screen-warning" class="fixed left-0 top-0 z-[100] h-screen w-screen bg-black text-white min-[270px]:hidden">
             <p class="m-auto px-3 pt-[40vh]">Your screen is too small, unexpected behaviour may occur. Please view the page from a larger screen</p>
         </div>
     </body>
 </html>
-
-<!-- old header: -->
-<!-- <div id="Header" class="fixed top-0 grid w-screen grid-cols-3 lg:h-screen lg:w-1/3 lg:grid-cols-1 lg:grid-rows-6">
-    <div class="z-50 pl-5 pt-3 lg:pl-14 lg:pt-12">
-        <a href="#"><img id="logo-website" class="h-[10vh]" src="shawnlu-logo3.png" /></a>
-    </div>
-    <div id="index-list" class="z-50 hidden pt-10 lg:row-span-3 lg:block lg:pl-14">
-        <ul class="w-fit columns-1 font-serif text-3xl leading-loose hover:text-slate-400">
-            <li id="index-item1">
-                <a class="inline-block pl-2 hover:text-white" href="#test"><p>About</p></a>
-            </li>
-            <li>
-                <a class="inline-block pl-2 hover:text-white"><p>Résumé</p></a>
-            </li>
-            <li>
-                <a class="inline-block pl-2 hover:text-white"><p>Projects</p></a>
-            </li>
-            <li>
-                <a class="inline-block pl-2 hover:text-white"><p>Blog</p></a>
-            </li>
-            <li>
-                <a class="inline-block pl-2 hover:text-white"><p>Contact</p></a>
-            </li>
-        </ul>
-    </div>
-    <div id="connections-list" class="z-50 col-span-2 pt-7 lg:col-span-1 lg:row-span-2 lg:pl-14">
-        <ul class="columns-3 lg:w-fit lg:columns-1">
-            <li class="pl-2 lg:p-5">
-                <a href="https://www.linkedin.com/in/shawn-lu-235749188/" target="”_blank”">
-                    <img class="h-[5vh] hover:scale-110" src="icon-linkedin-w.png" />
-                </a>
-            </li>
-            <li class="pl-2 lg:p-5">
-                <a href="https://github.com/chees-e" target="”_blank”">
-                    <img class="h-[5vh] hover:scale-110" src="icon-github-w.png" />
-                </a>
-            </li>
-            <li class="pl-2 lg:p-5">
-                <a href="mailto:shawnlu4@gmail.com">
-                    <img class="h-[5vh] hover:scale-110" src="icon-gmail-w.png" />
-                </a>
-            </li>
-        </ul>
-    </div>
-    <div id="gradient-header2" class="fixed top-0 z-30 h-[20vh] w-screen bg-gradient-to-b from-black from-20% lg:hidden"></div>
-</div> -->

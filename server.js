@@ -35,7 +35,11 @@ for (let i in routes) {
 // routes
 // main page
 app.get('/', function(req, res) {
-    res.render('main_new', {'param': 'routes', 'domain_name': 'https://shawnlu.dev', 'headers':route_list, 'aboutList':["test1", "test2", "test3"] });
+    // <p class="text-3xl leading-loose md:text-4xl"><% for (var i = 0; i < aboutList.length; i++) { %><span><%= aboutList[i] %> </span><% ;} %></p>
+
+    const about_txt = fs.readFileSync('./documents/about.txt', 'utf8');
+    const about_list = about_txt.replaceAll("\r\n", "\n").replaceAll("\r", "\n").split("\n");
+    res.render('main_new', {'param': 'routes', 'domain_name': 'https://shawnlu.dev', 'headers':route_list, 'aboutText': about_list});
 });
 
 app.get('/old/', function(req, res) {
