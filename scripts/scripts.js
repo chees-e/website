@@ -1,3 +1,8 @@
+// cur breakpoints:
+//     md: '768px',
+//     lg: '1024px',
+//     xl: '1440px',
+
 var titleState = 0; // 0 = normal, 1 = alt, 2 = random
 var buttonState = 0; // 0 = none, 1 = index, 2 = connection
 function fadeInTitle() {
@@ -37,6 +42,7 @@ function titleRandom() {
 function titleAlt() {
     console.log("called")
     var plist = $("#title p"); // list of letters
+    var ptestlist = $("#title-size-test p") // list used to test the nOffset
     var divlist = $("#title-float div"); // list of words
     var h = $("#title h2").height() + 40; // height of h2 + padding
     var lineh = $(divlist[2]).height(); // each lines height
@@ -46,7 +52,8 @@ function titleAlt() {
     var h2double = $("#title h2").height() / $(divlist[2]).height() > 1.5; // checks if h2 is two lines
     var lgOffset = h2double ? -60 : 60; // offset for y for different medias
     var leftOffset = 0; // used to offset each individual letter in alt position
-    var nOffset = 8; //offset for n's y specifically
+    var nOffset = $(ptestlist[0]).offset().top + $(ptestlist[0]).height() - $(ptestlist[1]).offset().top - $(ptestlist[1]).height() ; //offset for n's y specifically
+    console.log(nOffset, $(ptestlist[0]).offset().top, $(ptestlist[0]).height(), $(ptestlist[1]).offset().top, $(ptestlist[1]).height())
     var line1Offset = + (h2double ? lineh : 0); //y offset for h2 line 2 
     var h2font = $(plist[11]).css('font-size');
     if (window.matchMedia('(max-width: 298px)').matches) { // too small
@@ -54,10 +61,8 @@ function titleAlt() {
         return;
     } else if (window.matchMedia('(max-width: 768px)').matches){ // small
         lgOffset = h2double ? -30 : 0;
-        nOffset = 0;
     } else if (window.matchMedia('(max-width: 1024px)').matches){ // medium
         lgOffset = 40;
-        nOffset = 4;
     }
     var widths = [];
     for (let i = 0; i < 30; i++) {
@@ -67,7 +72,7 @@ function titleAlt() {
     var cur = $(plist[10]);
     var x = widths[6] + widths[7] + widths[8]  + widths[9];
     x = h1double ? x : x + $(divlist[0]).width();
-    cur.css({'transform': 'translate(' + -x + 'px ,' + (2 * h + lgOffset + nOffset) +'px) rotate(360deg)', 'font-size' : h2font});
+    cur.css({'font-size' : h2font, 'transform': 'translate(' + -x + 'px ,' + (2 * h + lgOffset + nOffset) +'px) rotate(360deg)'});
     // leftOffset += cur.width();
     leftOffset += $(plist[29]).width();
     // i
@@ -212,7 +217,7 @@ $(function() {
         setExitZIndex();
     });
     // index links https://stackoverflow.com/questions/7717527/smooth-scrolling-when-clicking-an-anchor-link
-    $(document).on('click', 'a[href^="#"]', function (event) {
+    $("a[href^='#']", document.body ).on("click", function( event ) {
         hideHeaderElements();
         if ($.attr(this, 'href') != "#") {
             event.preventDefault();
@@ -220,6 +225,15 @@ $(function() {
                 scrollTop: $($.attr(this, 'href')).offset().top
             }, 500);;
         }
+    });
+
+    // todo: dev only!! display info
+    $( "*", document.body ).on( "click", function( event ) {
+        event.stopPropagation();
+        var offset = $( this ).offset();
+        var height = $(this).height();
+        var width = $(this).width();
+        console.log(" coords ( " + offset.left + ", " + offset.top + " ), width " + width + " height " + height );
     });
 
     $( window ).on( "resize", function() {
@@ -258,13 +272,13 @@ $(function() {
         } else if (scroll > 1200) {
             $("#down-arrow").fadeOut();
         }
-        // index list
+        // index list items
         var indexList = $("#index-list p");
         indexList.removeClass("active");
         if (scroll < 1300) { // early by 100 for large
-        } else {
+        } else if (scroll < 10000) { // todo fix
             $(indexList[0]).addClass("active");
-        }
+        } 
 
         // gradient
         updateGradient()
@@ -286,6 +300,18 @@ $(function() {
                 $("#section-title1").addClass("active");
             }
         } 
+
+        // body 2 title
+        if (window.matchMedia('(min-width: 1440px)').matches) { 
+            var body2ImgList = $("#image-album-1 div");
+            body2ImgList.removeClass("active");
+            if (scroll < 1600) {
+                $(body2ImgList[0]).addClass("active");
+            } else {
+                $(body2ImgList[1]).addClass("active");
+            }
+        }
+        
         
     });
     $("#title p").hover(function() {
@@ -308,7 +334,7 @@ $(function() {
             if (scroll < 200) {
                 titleDefault();
             } else if (scroll < 1200) {
-                titleAlt();
+                titleAlt(); //todo disabled for now
             }
         }
     }
