@@ -236,21 +236,13 @@ a {
 
 @media screen(md) {
     #image-album-1 img {
-        height: 40vw;
-        width: 40vw;
-    }
-}
-
-@media screen(lg) {
-    #image-album-1 img {
-        height: 40vw;
-        width: 40vw;
-    }
-}
-
-@media screen(xl) {
-    #image-album-1 img {
-        height: 20vw;
-        width: 20vw;
+        height: 300px;
+        width: 300px;
     }
 } 
+
+#body2text span {
+    display: inline-block;
+    position: relative;
+    transition-duration: 0.1s;
+}

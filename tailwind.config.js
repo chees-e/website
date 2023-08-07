@@ -6,7 +6,7 @@ module.exports = {
     screens: {
       md: '768px',
       lg: '1024px',
-      xl: '1440px',
+      xl: '1600px',
     },
     fontFamily: {
       'serif' : ['New Century Schoolbook', 'TeX Gyre Schola',],
