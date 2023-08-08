@@ -216,7 +216,7 @@ a {
 }
 
 .section-title.active {
-    transform: translateX(-200px) rotate(-90deg) translateX(-100px);
+    transform: translateX(calc(-125px - 5vw)) rotate(-90deg) translateX(-100px);
 }
 
 /* images */

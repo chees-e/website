@@ -5,13 +5,17 @@
 
 var titleState = 0; // 0 = normal, 1 = alt, 2 = random
 var buttonState = 0; // 0 = none, 1 = index, 2 = connection
+// for dev only
+function scroll() {
+    console.log($(window).scrollTop());
+}
 function fadeInTitle() {
     $("#title1").hide();
     $("#title2").hide();
     $("#down-arrow").hide();
     $("#title1").fadeIn(2000);
-    $("#title2").delay(1500).fadeIn(2500);
-    $("#down-arrow").delay(3000).fadeIn(2000);
+    $("#title2").delay(1000).fadeIn(2000);
+    $("#down-arrow").delay(2500).fadeIn(2000);
     $("title-u").css({'opacity': 0});
 }
 function titleDefault() {
@@ -40,7 +44,6 @@ function titleRandom() {
     titleState = 2;
 }
 function titleAlt() {
-    console.log("called")
     var plist = $("#title p"); // list of letters
     var ptestlist = $("#title-size-test p") // list used to test the nOffset
     var divlist = $("#title-float div"); // list of words
@@ -59,7 +62,7 @@ function titleAlt() {
     if (window.matchMedia('(max-width: 298px)').matches) { // too small
         titleDefault();
         return;
-    } else if (window.matchMedia('(max-width: 768px)').matches){ // small
+    } else if (window.matchMedia('(max-width: 512px)').matches){ // small
         lgOffset = h2double ? -30 : 0;
     } else if (window.matchMedia('(max-width: 1024px)').matches){ // medium
         lgOffset = 40;
@@ -68,6 +71,7 @@ function titleAlt() {
     for (let i = 0; i < 30; i++) {
         widths.push($(plist[i]).width());
     }
+    plist.css({'padding': '0px'}); // reset paddings
     // n
     var cur = $(plist[10]);
     var x = widths[6] + widths[7] + widths[8]  + widths[9];
@@ -185,6 +189,97 @@ function setExitZIndex() {
         $("#exit-region").css({"z-index" : 0});
     }
 }
+function scrollEvent(event) {
+    var direction = 1;
+    if(event.originalEvent.wheelDelta > 0) {
+        direction = -1;
+    }
+
+    var scroll = $(window).scrollTop();
+
+    // switch title
+    if (scroll < 200) {
+        titleDefault();
+    } else if (scroll < 1200 && titleState != 1) {
+        titleAlt();
+    }
+    // fade title
+    if (scroll < 700) {
+        $("#title").css({'opacity': 1});
+    } else if (scroll < 1200) {
+        $("#title").css({'opacity': 1-(scroll-700)/500});
+
+    } else {
+        $("#title").css({'opacity': 0});
+    }
+    // down arrow
+    if (scroll < 200) {
+        $("#down-arrow").fadeIn();
+    } else if (scroll > 1200) {
+        $("#down-arrow").fadeOut();
+    }
+    // index list items
+    var indexList = $("#index-list p");
+    indexList.removeClass("active");
+    if (scroll < 1300) { // early by 100 for large
+    } else if (scroll < 10000) { // todo fix
+        $(indexList[0]).addClass("active");
+    } 
+
+    // gradient
+    updateGradient()
+
+    // fade in body 2
+    if (scroll < 900) {
+        $("#body2").css({'opacity': 0});
+    } else if (scroll < 1400) {
+        $("#body2").css({'opacity': (scroll-900)/500});
+    } else {
+        $("#body2").css({'opacity': 1});
+    }
+
+    // body 2 title
+    if (window.matchMedia('(min-width: 512px)').matches) { 
+        if (scroll < 1450) {
+            $("#section-title1").removeClass("active");
+        } else {
+            $("#section-title1").addClass("active");
+        }
+    } 
+
+    // body 2 images
+    if (window.matchMedia('(min-width: 1600px)').matches) { 
+        var body2ImgList = $("#image-album-1 div");
+        body2ImgList.removeClass("active");
+        if (scroll < 2000) {
+            $(body2ImgList[0]).addClass("active");
+        } else {
+            $(body2ImgList[1]).addClass("active");
+        }
+    }
+            
+    // body 2 text
+    if (scroll < 500) {
+        $("#body2text span").css({"left": "0px", "transform": "rotate(0deg)"})
+    } else if (scroll < 2800) {
+        var body2spans = $("#body2text span");
+        var body2text = $("#body2text");
+
+        body2spans.each( function(index) {
+            var displace = Math.max(0, $(this).offset().top - scroll - $(window).height() * 0.75);
+            displace = displace * ($(this).offset().left - (body2text.width() * 0.5 + body2text.offset().left)) /body2text.width() 
+            $(this).css({"left": displace + "px", "transform": "rotate(" + (-displace/10) + "deg)"});
+
+            // if (index == 0) {
+            //     console.log(displace, $(this).offset().top, scroll, $(window).height());
+            // }
+        });    
+    } else {
+        $("#body2text span").css({"left": "0px", "transform": "rotate(0deg)"})
+    }
+}
+// if (window.addEventListener) {window.addEventListener('DOMMouseScroll', scrollEvent, false);}
+// window.onmousewheel = document.onmousewheel = scrollEvent;
 // main function (ready)
 $(function() {
     // header
@@ -229,7 +324,8 @@ $(function() {
 
     // todo: dev only!! display info
     $( "*", document.body ).on( "click", function( event ) {
-        event.stopPropagation();
+        // to stop: event.stopPropagation();
+        debugger;
         var offset = $( this ).offset();
         var height = $(this).height();
         var width = $(this).width();
@@ -247,73 +343,11 @@ $(function() {
         fadeInTitle();
     });
     $(window).scroll(function (event) {
-        var scroll = $(window).scrollTop();
-        // var isSmall = window.matchMedia('(max-width: 1024px)').matches;
-        // $("#title").css({'transform': 'translateY(' + Math.min(scroll / 2, 200) + 'px)'});
-
-        // switch title
-        if (scroll < 200) {
-            titleDefault();
-        } else if (scroll < 1200 && titleState != 1) {
-            titleAlt();
-        }
-        // fade title
-        if (scroll < 700) {
-            $("#title").css({'opacity': 1});
-        } else if (scroll < 1200) {
-            $("#title").css({'opacity': 1-(scroll-700)/500});
-
-        } else {
-            $("#title").css({'opacity': 0});
-        }
-        // down arrow
-        if (scroll < 200) {
-            $("#down-arrow").fadeIn();
-        } else if (scroll > 1200) {
-            $("#down-arrow").fadeOut();
-        }
-        // index list items
-        var indexList = $("#index-list p");
-        indexList.removeClass("active");
-        if (scroll < 1300) { // early by 100 for large
-        } else if (scroll < 10000) { // todo fix
-            $(indexList[0]).addClass("active");
-        } 
-
-        // gradient
-        updateGradient()
-
-        // fade in body 2
-        if (scroll < 900) {
-            $("#body2").css({'opacity': 0});
-        } else if (scroll < 1400) {
-            $("#body2").css({'opacity': (scroll-900)/500});
-        } else {
-            $("#body2").css({'opacity': 1});
-        }
-
-        // body 2 title
-        if (window.matchMedia('(min-width: 768px)').matches) { 
-            if (scroll < 1450) {
-                $("#section-title1").removeClass("active");
-            } else {
-                $("#section-title1").addClass("active");
-            }
-        } 
-
-        // body 2 title
-        if (window.matchMedia('(min-width: 1440px)').matches) { 
-            var body2ImgList = $("#image-album-1 div");
-            body2ImgList.removeClass("active");
-            if (scroll < 1600) {
-                $(body2ImgList[0]).addClass("active");
-            } else {
-                $(body2ImgList[1]).addClass("active");
-            }
-        }
-        
-        
+        scrollEvent(event);
     });
+    // $(window).bind('DOMMouseScroll mousewheel', function(event){
+    //     scrollEvent(event);
+    // });
     $("#title p").hover(function() {
         if (titleState == 0) {
             $(this).css({'padding': '0px 3px'});

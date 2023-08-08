@@ -2,3 +2,4 @@ How is your day going my friend?
 My name is Shawn (Yixiao) Lu. I am Computer Engineer from UBC and a self-taught Full-Stack Developer who is passionate about learning new skills and meeting new people.
 For the past 3 years, I have been working as a coding/robotics teacher at Robokids. From writing their first line of code, to preparing for contests such as the Canadian Computing Competition (CCC) and USA Computing Olympiad (USACO), I have helped over 100 K-12 students building programming fundementals and developing their interests in coding.  
 During my free time, I love to explore new topics including game making, computer vision, machine learning, quantum computing, 3D design, and much more...
+Check out my resume:
