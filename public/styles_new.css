@@ -245,4 +245,5 @@ a {
     display: inline-block;
     position: relative;
     transition-duration: 0.1s;
+    text-shadow: 5px 5px 30px rgb(0, 0, 0), 5px -5px 30px rgb(0, 0, 0), -5px 5px 30px rgb(0, 0, 0), -5px -5px 30px rgb(0, 0, 0);
 }

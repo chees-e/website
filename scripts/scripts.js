@@ -240,7 +240,7 @@ function scrollEvent(event) {
 
     // body 2 title
     if (window.matchMedia('(min-width: 512px)').matches) { 
-        if (scroll < 1450) {
+        if ($("#body2text").offset().top - scroll > 250) { // og: 1450
             $("#section-title1").removeClass("active");
         } else {
             $("#section-title1").addClass("active");

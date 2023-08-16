@@ -90,7 +90,7 @@
                     <!-- used to calculate how far n goes down-->
                     <p class="res-text-1 inline-block">n</p><p class="res-text-3 inline-block">n</p>
                 </div>
-                <div id="title" class="sticky top-[150px] select-none font-sans drop-shadow-lg">
+                <div id="title" class="sticky top-[150px] cursor-pointer select-none font-sans drop-shadow-lg">
                     <div id="title-float" class="relative">
                         <h1 id="title1" class="res-text-1">
                             <div><p>H</p><p>i</p><p>,</p> <p>I</p><p>'</p><p>m</p> <span>&#8203;</span></div
@@ -119,7 +119,7 @@
                             <div class="top-[100px] font-serif text-5xl drop-shadow-lg md:sticky md:text-7xl">
                                 <p id="section-title1" class="section-title w-fit">About</p>
                             </div>
-                            <div id="body2text" class="mt-10 text-2xl md:mt-40 md:text-4xl lg:leading-loose">
+                            <div id="body2text" class="mt-10 text-2xl leading-relaxed md:mt-40 md:text-3xl lg:text-4xl lg:leading-loose">
                                 <% for (var i = 0; i < aboutText.length; i++) { %> <% var lst = aboutText[i].split(" "); %>
                                 <p>
                                     <% for (var j = 0; j < lst.length; j++) { %>
@@ -131,13 +131,13 @@
                             </div>
                         </div>
                         <!-- todo use cdn for images -->
-                        <div class="relative h-[500px] xl:top-[-600px] xl:h-[2700px]">
+                        <div class="relative h-[500px] xl:top-[-600px] xl:h-[2150px]">
                             <div id="image-album-1" class="ml-[5vw] md:ml-0 xl:sticky xl:top-[-250px] xl:mt-[250px]">
-                                <div class="active relative xl:top-[600px]">
+                                <div class="active relative h-0 xl:top-[600px]">
                                     <img src="shawnlu-1.png" class="scale-105 rounded-xl blur-lg" />
                                     <img src="shawnlu-1.png" class="translate-y-[-70vw] rounded-xl md:translate-y-[-300px]" />
                                 </div>
-                                <div class="relative">
+                                <div class="relative xl:top-[600px]">
                                     <img src="shawnlu-2.jpg" class="scale-105 rounded-xl blur-lg" />
                                     <img src="shawnlu-2.jpg" class="translate-y-[-70vw] rounded-xl md:translate-y-[-300px]" />
                                 </div>
@@ -152,7 +152,7 @@
                     <!-- <img src="shawnlu-1.jpg" class="fixed left-0 top-0 -z-10 h-max w-max" /> -->
                 </div>
             </div>
-            <div id="body3" class="z-20">
+            <div id="body3" class="relative z-20">
                 <a id="resume" class="invisible relative top-[-150px] block lg:top-[-100px]"></a>
 
                 <!-- mobile: starts at todo, other: todo -->
