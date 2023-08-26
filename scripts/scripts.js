@@ -10,11 +10,17 @@ function scroll() {
     console.log($(window).scrollTop());
 }
 function fadeInTitle() {
-    $("#title1").hide();
+    $("#title1 p").hide();
     $("#title2").hide();
     $("#down-arrow").hide();
-    $("#title1").fadeIn(2000);
-    $("#title2").delay(1000).fadeIn(2000);
+
+    let plist = $("#title1 p");
+    for (let i = 0; i < plist.length; i++) {
+
+        $(plist[i]).delay((i+2) * 100).fadeIn(10);
+    }
+    // $("#title1").fadeIn(2000);
+    $("#title2").delay(1500).fadeIn(2000);
     $("#down-arrow").delay(2500).fadeIn(2000);
     $("title-u").css({'opacity': 0});
 }
@@ -197,6 +203,9 @@ function scrollEvent(event) {
 
     var scroll = $(window).scrollTop();
 
+    // bg-animation color change (a bit laggy)
+    // $("#bg-animation p").css({'filter': `hue-rotate(${scroll/20}deg)`});
+
     // switch title
     if (scroll < 200) {
         titleDefault();
@@ -278,7 +287,7 @@ function scrollEvent(event) {
         $("#body2text span").css({"left": "0px", "transform": "rotate(0deg)"})
     }
 }
-// if (window.addEventListener) {window.addEventListener('DOMMouseScroll', scrollEvent, false);}
+if (window.addEventListener) {window.addEventListener('DOMMouseScroll', scrollEvent, false);}
 // window.onmousewheel = document.onmousewheel = scrollEvent;
 // main function (ready)
 $(function() {
@@ -383,8 +392,12 @@ $(function() {
 
    
 
-    // bg-animation
+    // bg-animation        
     var num = 40;
+
+    if (navigator.userAgent && navigator.userAgent.indexOf("Firefox") > -1) {
+        num = 0; // firefox can't handle lots of shadows
+    }
 
     for (var j = 1; j < 3; j++) {
         var text_shadow = ""

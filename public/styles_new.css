@@ -108,6 +108,11 @@ a {
     }
 }
 */
+
+#title-1 p {
+    overflow: hidden;
+}
+
 #title-float {
     animation-name: title-animate;
     animation-duration: 5s;
