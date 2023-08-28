@@ -240,11 +240,11 @@ function scrollEvent(event) {
 
     // fade in body 2
     if (scroll < 900) {
-        $("#body2").css({'opacity': 0});
+        $("#body2").css({'opacity': 0, 'filter': `blur(20px)`});
     } else if (scroll < 1400) {
-        $("#body2").css({'opacity': (scroll-900)/500});
+        $("#body2").css({'opacity': (scroll-900)/500, 'filter': `blur(${Math.max(0,20-(scroll-800)/25)}px)`});
     } else {
-        $("#body2").css({'opacity': 1});
+        $("#body2").css({'opacity': 1, 'filter': `blur(0)`});
     }
 
     // body 2 title
