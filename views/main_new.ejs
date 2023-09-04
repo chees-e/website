@@ -85,7 +85,7 @@
                 <img src="icon-down.png" class="m-auto w-10 animate-bounce" />
             </div>
 
-            <div id="body1" class="z-20 ml-[10vw] mt-[250px] h-[1200px] pr-10 lg:ml-[30vw] lg:mt-[300px]">
+            <div id="body0" class="z-20 ml-[10vw] mt-[250px] h-[1200px] pr-10 lg:ml-[30vw] lg:mt-[300px]">
                 <div id="title-size-test" class="invisible absolute top-0">
                     <!-- used to calculate how far n goes down-->
                     <p class="res-text-1 inline-block">n</p><p class="res-text-3 inline-block">n</p>
@@ -107,7 +107,7 @@
             </div>
 
             <!-- id mt still needed? -->
-            <div id="body2" class="z-20 overflow-x-clip">
+            <div id="body1" class="z-20 overflow-x-clip">
                 <div class="mx-[10vw] md:ml-[20vw] md:mr-[3vw] lg:ml-[30vw]">
                     <!-- mobile: starts at 1350, other: 1400 -->
                     <a id="about" class="invisible relative top-[-150px] block lg:top-[-100px]"></a>
@@ -119,7 +119,8 @@
                             <div class="top-[100px] font-serif text-5xl drop-shadow-lg md:sticky md:text-7xl lg:text-8xl">
                                 <p id="section-title1" class="section-title w-fit">About</p>
                             </div>
-                            <div id="body2text" class="mt-10 text-2xl leading-relaxed md:mt-40 md:text-3xl lg:text-4xl lg:leading-loose">
+                            <a id="body1start"></a>
+                            <div id="body1text" class="mt-10 text-2xl leading-relaxed md:mt-40 md:text-3xl lg:text-4xl lg:leading-loose">
                                 <% for (var i = 0; i < aboutText.length; i++) { %> <% var lst = aboutText[i].split(" "); %>
                                 <p>
                                     <% for (var j = 0; j < lst.length; j++) { %>
@@ -152,7 +153,7 @@
                     <!-- <img src="shawnlu-1.jpg" class="fixed left-0 top-0 -z-10 h-max w-max" /> -->
                 </div>
             </div>
-            <div id="body3" class="relative z-20">
+            <div id="body2" class="relative z-20">
                 <a id="resume" class="invisible relative top-[-150px] block lg:top-[-100px]"></a>
 
                 <!-- mobile: starts at todo, other: todo -->
@@ -169,6 +170,7 @@
                             <p id="section-title2" class="section-title w-fit">Résumé</p>
                         </div>
                         <div id="resume-sections" class="mt-10 md:mt-40">
+                            <a id="body2start"></a>
                             <div>
                                 <div class="lg:col-span-2">
                                     <p>This site is still under development, please visit old site for more info:</p>
@@ -214,6 +216,24 @@
                         </div>
                     </div>
                 </div> -->
+            </div>
+
+            <div id="body3" class="">
+                <div class="top-[100px] font-serif text-5xl drop-shadow-lg md:sticky md:text-7xl lg:text-8xl">
+                    <p id="section-title3" class="section-title w-fit">Projects</p>
+                </div>
+            </div>
+
+            <div id="body4" class="">
+                <div class="top-[100px] font-serif text-5xl drop-shadow-lg md:sticky md:text-7xl lg:text-8xl">
+                    <p id="section-title3" class="section-title w-fit">Blog</p>
+                </div>
+            </div>
+
+            <div id="body4" class="">
+                <div class="top-[100px] font-serif text-5xl drop-shadow-lg md:sticky md:text-7xl lg:text-8xl">
+                    <p id="section-title4" class="section-title w-fit">Contact</p>
+                </div>
             </div>
         </div>
         <noscript class="absolute top-24 text-white lg:top-0"> It seems you don't have JavaScript enabled. For best experience, please enable JavaScript. </noscript>

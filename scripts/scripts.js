@@ -230,53 +230,67 @@ function scrollEvent(event) {
     // index list items
     var indexList = $("#index-list p");
     indexList.removeClass("active");
-    if (scroll < 1300) { // early by 100 for large
-    } else if (scroll < 10000) { // todo fix
+    if (scroll < $("#section-title1").offset().top - 250) { // early by 100 for large
+    } else if (scroll < $("#section-title2").offset().top - 250) {
         $(indexList[0]).addClass("active");
+    } else if (scroll < $("#section-title3").offset().top - 250) {
+        $(indexList[1]).addClass("active");
+    } else if (scroll < $("#section-title4").offset().top - 250) {
+        $(indexList[2]).addClass("active");
+    } else if (scroll < $("#section-title5").offset().top - 250) {
+        $(indexList[3]).addClass("active");
+    } else if (scroll < 10000) { // place holder
+        $(indexList[4]).addClass("active");
     } 
 
     // gradient
     updateGradient()
 
-    // fade in body 2
+    // fade in body 1
     if (scroll < 900) {
-        $("#body2").css({'opacity': 0, 'filter': `blur(20px)`});
+        $("#body1").css({'opacity': 0, 'filter': `blur(20px)`});
     } else if (scroll < 1400) {
-        $("#body2").css({'opacity': (scroll-900)/500, 'filter': `blur(${Math.max(0,20-(scroll-800)/25)}px)`});
+        $("#body1").css({'opacity': (scroll-900)/500, 'filter': `blur(${Math.max(0,20-(scroll-800)/25)}px)`});
     } else {
-        $("#body2").css({'opacity': 1, 'filter': `blur(0)`});
+        $("#body1").css({'opacity': 1, 'filter': `blur(0)`});
     }
 
-    // body 2 title
+    // body titles
     if (window.matchMedia('(min-width: 512px)').matches) { 
-        if ($("#body2text").offset().top - scroll > 250) { // og: 1450
+        if ($("#body1start").offset().top - scroll > 250) { // og: 1450
             $("#section-title1").removeClass("active");
         } else {
             $("#section-title1").addClass("active");
         }
+
+        if ($("#body2start").offset().top - scroll > 250) {
+            $("#section-title2").removeClass("active");
+        } else {
+            $("#section-title2").addClass("active");
+        }
     } 
 
-    // body 2 images
+    // body 1 images
     if (window.matchMedia('(min-width: 1600px)').matches) { 
-        var body2ImgList = $("#image-album-1 div");
-        body2ImgList.removeClass("active");
+        var body1ImgList = $("#image-album-1 div");
+        body1ImgList.removeClass("active");
         if (scroll < 2000) {
-            $(body2ImgList[0]).addClass("active");
+            $(body1ImgList[0]).addClass("active");
         } else {
-            $(body2ImgList[1]).addClass("active");
+            $(body1ImgList[1]).addClass("active");
         }
     }
             
-    // body 2 text
+    // body 1 text
     if (scroll < 500) {
-        $("#body2text span").css({"left": "0px", "transform": "rotate(0deg)"})
+        $("#body1text span").css({"left": "0px", "transform": "rotate(0deg)"})
     } else if (scroll < 2800) {
-        var body2spans = $("#body2text span");
-        var body2text = $("#body2text");
+        var body1spans = $("#body1text span");
+        var body1text = $("#body1text");
 
-        body2spans.each( function(index) {
+        body1spans.each( function(index) {
             var displace = Math.max(0, $(this).offset().top - scroll - $(window).height() * 0.75);
-            displace = displace * ($(this).offset().left - (body2text.width() * 0.5 + body2text.offset().left)) /body2text.width() 
+            displace = displace * ($(this).offset().left - (body1text.width() * 0.5 + body1text.offset().left)) /body1text.width() 
             $(this).css({"left": displace + "px", "transform": "rotate(" + (-displace/10) + "deg)"});
 
             // if (index == 0) {
@@ -284,7 +298,7 @@ function scrollEvent(event) {
             // }
         });    
     } else {
-        $("#body2text span").css({"left": "0px", "transform": "rotate(0deg)"})
+        $("#body1text span").css({"left": "0px", "transform": "rotate(0deg)"})
     }
 }
 if (window.addEventListener) {window.addEventListener('DOMMouseScroll', scrollEvent, false);}

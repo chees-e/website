@@ -255,7 +255,7 @@ a {
     }
 } 
 
-#body2text span {
+#body1text span {
     display: inline-block;
     position: relative;
     transition-duration: 0.1s;
