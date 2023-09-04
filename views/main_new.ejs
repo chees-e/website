@@ -90,7 +90,7 @@
                     <!-- used to calculate how far n goes down-->
                     <p class="res-text-1 inline-block">n</p><p class="res-text-3 inline-block">n</p>
                 </div>
-                <div id="title" class="sticky top-[150px] select-none font-sans drop-shadow-lg">
+                <div id="title" class="sticky top-[150px] cursor-pointer select-none font-sans drop-shadow-lg">
                     <div id="title-float" class="relative">
                         <h1 id="title1" class="res-text-1">
                             <div><p>H</p><p>i</p><p>,</p> <p>I</p><p>'</p><p>m</p> <span>&#8203;</span></div
@@ -116,7 +116,7 @@
                     <!-- need responsive ^ -->
                     <div class="flex flex-col gap-[3vw] xl:flex-row">
                         <div class="xl:h-[1350px] xl:basis-2/3">
-                            <div class="top-[100px] font-serif text-5xl drop-shadow-lg md:sticky md:text-7xl">
+                            <div class="top-[100px] font-serif text-5xl drop-shadow-lg md:sticky md:text-7xl lg:text-8xl">
                                 <p id="section-title1" class="section-title w-fit">About</p>
                             </div>
                             <div id="body2text" class="mt-10 text-2xl leading-relaxed md:mt-40 md:text-3xl lg:text-4xl lg:leading-loose">
@@ -131,13 +131,13 @@
                             </div>
                         </div>
                         <!-- todo use cdn for images -->
-                        <div class="relative h-[500px] xl:top-[-600px] xl:h-[2700px]">
+                        <div class="relative h-[500px] xl:top-[-600px] xl:h-[2150px]">
                             <div id="image-album-1" class="ml-[5vw] md:ml-0 xl:sticky xl:top-[-250px] xl:mt-[250px]">
-                                <div class="active relative xl:top-[600px]">
+                                <div class="active relative h-0 xl:top-[600px]">
                                     <img src="shawnlu-1.png" class="scale-105 rounded-xl blur-lg" />
                                     <img src="shawnlu-1.png" class="translate-y-[-70vw] rounded-xl md:translate-y-[-300px]" />
                                 </div>
-                                <div class="relative top-[-600px] xl:top-0">
+                                <div class="relative xl:top-[600px]">
                                     <img src="shawnlu-2.jpg" class="scale-105 rounded-xl blur-lg" />
                                     <img src="shawnlu-2.jpg" class="translate-y-[-70vw] rounded-xl md:translate-y-[-300px]" />
                                 </div>
@@ -152,19 +152,68 @@
                     <!-- <img src="shawnlu-1.jpg" class="fixed left-0 top-0 -z-10 h-max w-max" /> -->
                 </div>
             </div>
-            <div id="body3" class="z-20">
+            <div id="body3" class="relative z-20">
                 <a id="resume" class="invisible relative top-[-150px] block lg:top-[-100px]"></a>
 
                 <!-- mobile: starts at todo, other: todo -->
                 <div class="mx-[10vw] md:ml-[20vw] lg:ml-[30vw]">
-                    <div class="flex flex-col gap-24 xl:flex-row" style="height: 3000px">
+                    <!-- <div class="flex flex-col gap-24 xl:flex-row" style="height: 3000px">
                         <div class="xl:basis-2/3">
                             <div class="top-[100px] font-serif text-5xl drop-shadow-lg md:sticky md:text-7xl">
                                 <p id="section-title2" class="section-title w-fit">Resume</p>
                             </div>
                         </div>
+                    </div> -->
+                    <div style="height: 3000px">
+                        <div class="top-[100px] font-serif text-5xl drop-shadow-lg md:sticky md:text-7xl lg:text-8xl">
+                            <p id="section-title2" class="section-title w-fit">Résumé</p>
+                        </div>
+                        <div id="resume-sections" class="mt-10 md:mt-40">
+                            <div>
+                                <div class="lg:col-span-2">
+                                    <p>This site is still under development, please visit old site for more info:</p>
+                                    <a href="https://shawnlu.dev/old"><button style="padding: 0px 10px; color: black; background-color: white; margin-left: 30px">Visit</button></a>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-rows-2 lg:grid-cols-2">
+                                <div>
+                                    <!-- <div class="relative h-80 w-80 rounded-lg bg-black/50 drop-shadow-2xl backdrop-blur-md"> -->
+                                    <!-- style="background: radial-gradient(circle, rgba(45, 85, 3) 0%, rgb(0, 0, 0, 0) 60%)" -->
+                                    <!-- <p class="">Skills</p> -->
+                                    <!-- </div> -->
+
+                                    <!-- <p style="font-size: 10px">Languages</p> -->
+                                </div>
+                                <div>
+                                    <!-- <div id="resume-list-1" class="ml-10 grid grid-rows-5">
+                                        <p>Python</p>
+                                        <p>JavaScript</p>
+                                        <p>Java</p>
+                                        <p>C++</p>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- <div id="resume-index">
+                    <div id="resume-index-rotate">
+                        <div>
+                            <img src="circle.png" class="fixed left-[5vw] top-[80vh] w-[90vw] blur-[1px]" />
+                        </div>
+                        <div>
+                            <img src="circle.png" class="fixed left-[5vw] top-[80vh] w-[90vw] blur-[6px]" />
+                        </div>
+                        <div>
+                            <p>Introduction</p>
+                            <p>Skills</p>
+                            <p>Education</p>
+                            <p>Awards</p>
+                        </div>
+                    </div>
+                </div> -->
             </div>
         </div>
         <noscript class="absolute top-24 text-white lg:top-0"> It seems you don't have JavaScript enabled. For best experience, please enable JavaScript. </noscript>
@@ -173,3 +222,7 @@
         </div>
     </body>
 </html>
+
+<!-- <div id="orbit-1" class="absolute z-[-10] h-80 w-80 rounded-full border-2 border-dashed border-white">
+    <div class="relative left-[-1rem] top-36 h-8 w-8 rounded-full bg-white"></div>
+</div> -->
